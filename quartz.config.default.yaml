@@ -7,7 +7,7 @@ configuration:
   analytics:
     provider: plausible
   locale: en-US
-  baseUrl: quartz.jzhao.xyz
+  baseUrl: mudeul.github.io/quartz-notes-5
   ignorePatterns:
     - private
     - templates
