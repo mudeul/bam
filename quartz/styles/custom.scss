@@ -159,43 +159,9 @@ div:has(> h3:contains("최신글")),
 }
 
 // ==========================================
-// 홈 화면 sheets 목록 좌우 정렬 고정
+// 모바일 화면 좌우 여백 완전 균등(대칭) 정렬 설정
 // ==========================================
-body[data-slug="index"] {
-  .home-grid ul, 
-  article ul {
-    list-style: none !important;
-    padding-left: 0 !important;
-
-    li {
-      display: flex !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      width: 100% !important;
-      padding: 0.25rem 0 !important;
-      box-sizing: border-box !important;
-
-      a {
-        flex: 1 1 auto !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        margin-right: 1rem !important;
-        text-decoration: none !important;
-      }
-
-      .date {
-        flex: 0 0 auto !important;
-        text-align: right !important;
-        white-space: nowrap !important;
-        font-size: 0.8rem !important;
-        opacity: 0.6 !important;
-      }
-    }
-  }
-}
 @media (max-width: 1000px) {
-  /* 왼쪽만 딱 붙지 않고 좌우 균등하게 적당한 여백(0.8rem)을 주어 대칭 맞추기 */
   .center, 
   .content, 
   article,
@@ -203,10 +169,11 @@ body[data-slug="index"] {
   .folder-page {
     width: 100% !important;
     max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-left: 0.8rem !important;
-    padding-right: 0.8rem !important;
+    /* 양쪽 마진을 완전히 죽여서 한쪽으로 쏠리는 현상 원천 차단 */
+    margin: 0 auto !important; 
+    /* 좌우 패딩을 똑같이 0.9rem씩 주어 완벽하게 균등한 대칭 여백 확보 */
+    padding-left: 0.9rem !important;
+    padding-right: 0.9rem !important; 
     box-sizing: border-box !important;
   }
 }
