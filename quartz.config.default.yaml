@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Quartz 5
+  pageTitle: 높이 부는 바람
   pageTitleSuffix: ""
   enableSPA: false
   enablePopovers: true
