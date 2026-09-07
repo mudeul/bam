@@ -154,7 +154,7 @@ article a.external {
   padding: 0 !important;
   border-radius: 0 !important;
   font-weight: normal !important;
-  font-size: 0.8rem !important; /* 필요에 따라 0.5rem ~ 0.7rem 사이로 조절해보세요 */
+  font-size: 0.75rem !important; /* 필요에 따라 0.5rem ~ 0.7rem 사이로 조절해보세요 */
 }
 /* 노트 링크 목록 스타일 조정 (불렛 제거 포함) */
 article ul {
@@ -181,26 +181,4 @@ article small a.external {
 article small a:hover {
   color: var(--dark) !important; /* 마우스 올렸을 때 진해지도록 */
   opacity: 1 !important;
-}
-/* sheets 목록을 최신글(RecentNotes)과 완전히 동일한 스타일로 맞추기 */
-article ul {
-  list-style: none !important;
-  padding-left: 0 !important;
-}
-
-article li a.internal, 
-article li a.external {
-  font-family: var(--bodyFont) !important; /* 쿼츠 본문 폰트 강제 상속 */
-  font-size: 0.95rem !important;          /* 최신글 기본 크기감 */
-  font-weight: 400 !important;
-  color: var(--dark) !important;
-  background-color: transparent !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-}
-
-/* 최신글 링크에 마우스 올렸을 때의 색상 반응도 동일하게 맞추기 */
-article li a.internal:hover, 
-article li a.external:hover {
-  color: var(--secondary) !important;
 }
