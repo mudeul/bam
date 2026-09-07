@@ -195,23 +195,7 @@ body[data-slug="index"] {
   }
 }
 @media (max-width: 1000px) {
-  /* 1. 화면 전체를 감싸는 상위 레이아웃과 그리드의 우측 여백/컬럼 제한 해제 */
-  body,
-  .page,
-  #quartz-body,
-  .page-width,
-  div[class*="grid"],
-  div[class*="layout"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    grid-template-columns: 100% !important; // 우측 빈 공간을 만들던 그리드 컬럼 강제 통일
-    box-sizing: border-box !important;
-  }
-
-  /* 2. 본문 및 폴더 컨테이너 좌우 균등 정렬 */
+  /* 왼쪽만 딱 붙지 않고 좌우 균등하게 적당한 여백(0.8rem)을 주어 대칭 맞추기 */
   .center, 
   .content, 
   article,
@@ -219,7 +203,8 @@ body[data-slug="index"] {
   .folder-page {
     width: 100% !important;
     max-width: 100% !important;
-    margin: 0 auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     padding-left: 0.8rem !important;
     padding-right: 0.8rem !important;
     box-sizing: border-box !important;
