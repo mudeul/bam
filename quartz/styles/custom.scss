@@ -42,3 +42,18 @@ article {
     box-sizing: border-box !important;
   }
 }
+
+// ==========================================
+// 본문(Article) 폭을 500px 수준으로 슬림하게 조절
+// ==========================================
+.center {
+  max-width: 550px !important; // 여유를 살짝 두어 500~550px 정도로 설정
+  margin: 0 auto !important;
+}
+
+// 모바일 화면에서는 화면 너비에 맞게 꽉 차도록 안전장치
+@media (max-width: 600px) {
+  .center {
+    max-width: 100% !important;
+  }
+}
