@@ -274,11 +274,8 @@ layout:
         right: []
     content:
       positions:
-        afterBody: []   # 일반 본문 아래에서는 제거
-    index:
-      positions:
         afterBody:
-          - RecentNotes   # 오직 대문(index) 페이지 본문 아래에만 출력
+          - RecentNotes   # 콘텐츠 페이지 하단에 다시 출력되도록 설정
     folder:
       exclude:
         - reader-mode
