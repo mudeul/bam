@@ -39,7 +39,7 @@ body[data-slug="index"],
 }
 
 // ==========================================
-// 2. PC 전용 전체 레이아웃 (1000px 고정 & 그리드)
+// 2. PC 화면 전체 레이아웃 (1000px 고정 & 그리드)
 // ==========================================
 .page {
   max-width: 1000px !important;
@@ -62,9 +62,8 @@ body[data-slug="index"],
 }
 
 // ==========================================
-// 3. 글로벌 타이포그래피 및 글자 크기 완벽 고정
+// 3. 글로벌 타이포그래피 및 글자 크기 고정
 // ==========================================
-/* 모든 노트 본문 내의 텍스트 크기를 흔들리지 않게 일괄 고정 */
 article, 
 article p, 
 article li, 
@@ -74,7 +73,6 @@ article div {
   line-height: 1.6 !important;
 }
 
-/* 노트 링크 목록 스타일 */
 article ul {
   list-style: none !important; 
   padding-left: 0 !important;  
@@ -183,10 +181,17 @@ div:has(> h3:contains("최신글")),
 }
 
 // ==========================================
-// 6. 모바일 화면 반응형 완벽 고정 (max-width: 800px)
+// 6. 모바일 화면 최적화 (사이드바 숨김 & 폭/글자 고정)
 // ==========================================
 @media (max-width: 800px) {
-  /* 페이지 컨테이너 및 본문 영역 100% 폭 강제 */
+  /* PC 전용 사이드바 영역(.left, .right 등)을 모바일에서 완전히 숨김 처리 */
+  .left, 
+  .right, 
+  aside {
+    display: none !important;
+  }
+
+  /* 페이지 전체 폭 확장 및 여백 고정 */
   .page {
     max-width: 100% !important;
     width: 100% !important;
@@ -196,6 +201,7 @@ div:has(> h3:contains("최신글")),
     box-sizing: border-box !important;
   }
 
+  /* 그리드 구조를 풀고 단일 열(Single Column)로 전환 */
   #quartz-body {
     display: flex !important;
     flex-direction: column !important;
@@ -209,6 +215,7 @@ div:has(> h3:contains("최신글")),
     box-sizing: border-box !important;
   }
 
+  /* 본문 영역이 글마다 좁아지지 않고 화면에 꽉 차게 설정 */
   .center, 
   article, 
   main, 
@@ -226,7 +233,7 @@ div:has(> h3:contains("최신글")),
     box-sizing: border-box !important;
   }
 
-  /* 모바일 홈 화면 가운데 정렬 및 배치 */
+  /* 모바일 홈 화면 카드는 예쁘게 가운데 정렬 */
   .home-grid {
     display: flex !important;
     flex-direction: column !important;
