@@ -194,7 +194,10 @@ body[data-slug="index"] {
     }
   }
 }
-// 모바일 화면에서 본문 및 텍스트 단락 폭 제한 완전 해제
+
+// ==========================================
+// 5. 모바일 화면 최적화 (본문 텍스트 단락까지 전체 확장)
+// ==========================================
 @media (max-width: 800px) {
   .center, 
   article, 
@@ -209,7 +212,6 @@ body[data-slug="index"] {
     box-sizing: border-box !important;
   }
 
-  /* 💡 핵심: 본문 안의 모든 문단과 요소들이 좁은 박스에 갇히지 않도록 강제 해제 */
   article > *, 
   .content > * {
     max-width: 100% !important;
