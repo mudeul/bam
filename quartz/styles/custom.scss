@@ -80,7 +80,7 @@ body[data-slug="index"],
 } // <--- 여기에 미디어쿼리 닫는 괄호가 빠져있어 수정했습니다!
 
 // ==========================================
-// 4. RecentNotes(최신글) 스타일 커스텀 (완전한 한 줄 정렬)
+// 4. RecentNotes(최신글) 완벽 한 줄 정렬 스타일
 // ==========================================
 div:has(> h3:contains("최신글")), 
 .recent-notes, 
@@ -109,15 +109,18 @@ div:has(> h3:contains("최신글")),
 
     li {
       display: flex !important;
-      flex-direction: row !important;      // 강제로 가로 방향 정렬
-      justify-content: space-between !important; // 양 끝으로 배치
-      align-items: center !important;     // 수직 가운데 정렬
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      align-items: center !important;
       width: 100% !important;
       padding: 0.35rem 0 !important;
       border: none !important;
 
-      // 글자 크기 및 볼드체 제거 (전역 선택자 충돌 방지용 세분화)
-      a, span, time, .date {
+      // li 바로 아래의 모든 내부 래퍼(div, p 등)가 줄바꿈하지 않도록 강제 설정
+      > * {
+        display: inline-flex !important;
+        align-items: center !important;
+        margin: 0 !important;
         font-size: 0.85rem !important;
         font-weight: 400 !important;
       }
@@ -133,7 +136,7 @@ div:has(> h3:contains("최신글")),
       }
 
       // 날짜 영역 (오른쪽 고정, 줄바꿈 방지)
-      time, .date, span:last-child {
+      .meta, time, .date, span {
         flex: 0 0 auto !important;
         white-space: nowrap !important;
         font-size: 0.78rem !important;
