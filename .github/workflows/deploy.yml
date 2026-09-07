@@ -39,7 +39,6 @@ jobs:
     runs-on: ubuntu-22.04
     environment:
       name: github-pages
-      script-url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       pages: write
       id-token: write
