@@ -187,3 +187,20 @@ article p {
   font-size: 0.85rem !important; /* 원하시는 크기로 조절 가능 (예: 0.85rem ~ 0.95rem) */
   line-height: 1.6;          /* 줄 간격도 함께 다듬어주면 보기 좋습니다 */
 }
+/* PC에서는 가로 3단 균등 배치, 모바일에서는 세로로 쌓임 */
+.home-grid {
+  display: flex;
+  gap: 2.5rem;
+  text-align: left;
+}
+
+.home-grid > div {
+  flex: 1; 
+}
+
+@media (max-width: 768px) {
+  .home-grid {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
