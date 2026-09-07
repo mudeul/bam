@@ -1,193 +1,14 @@
-@use "./variables.scss" as *;
-
 // ==========================================
-// 0. 본문 하단 구분선(hr) 제거
-// ==========================================
-article hr,
-.content-meta + hr,
-hr {
-  display: none !important;
-}
-
-// ==========================================
-// 1. 메인 페이지(index) 전용 설정
-// ==========================================
-body[data-slug="index"], 
-.page[data-slug="index"],
-[data-slug="index"] {
-  
-  // A. 이미지 가운데 정렬 및 크기 조절
-  article {
-    p {
-      text-align: center;
-    }
-    
-    img {
-      max-width: 450px !important;
-      width: 100% !important;
-      height: auto !important;
-      display: block !important;
-      margin: 1.5rem auto !important;
-    }
-  }
-
-  // B. 불필요한 제목, 날짜, 읽기 시간, 프론트매터 속성 숨기기
-  .article-title,
-  h1.article-title,
-  .content-meta,
-  .note-properties {
-    display: none !important;
-  }
-}
-
-// ==========================================
-// 2. PC 전용 전체 레이아웃 (1000px 고정 & 그리드)
-// ==========================================
-.page {
-  max-width: 1000px !important;
-  margin: 0 auto !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-}
-
-#quartz-body {
-  width: 100% !important;
-  max-width: 1000px !important;
-  display: grid !important;
-  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr) !important; 
-  gap: 2rem !important;
-  margin: 0 auto !important;
-  box-sizing: border-box !important;
-}
-
-// ==========================================
-// 3. 글로벌 타이포그래피 및 링크 스타일 정돈
-// ==========================================
-article ul {
-  list-style: none !important; 
-  padding-left: 0 !important;  
-}
-
-article a.internal, 
-article a.external {
-  background-color: transparent !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  font-weight: normal !important;
-  font-size: 0.88rem !important;
-}
-
-article small a,
-article small a.internal,
-article small a.external {
-  color: #8b949e !important; 
-  opacity: 0.8 !important;
-}
-
-article small a:hover {
-  color: var(--dark) !important; 
-  opacity: 1 !important;
-}
-
-article p {
-  font-size: 0.85rem !important; 
-  line-height: 1.6 !important;     
-}
-
-// ==========================================
-// 4. RecentNotes(최신글) 한 줄 정렬 커스텀
-// ==========================================
-div:has(> h3:contains("최신글")), 
-.recent-notes, 
-[class*="recent-notes"] {
-  
-  h3, h4 {
-    font-size: 0.95rem !important;
-    font-weight: 500 !important;
-    margin-bottom: 0.4rem !important;
-  }
-
-  ul li .tags, 
-  ul li .tag-badge, 
-  .tag, 
-  span.tags {
-    display: none !important;
-  }
-
-  ul {
-    list-style: none !important;
-    padding-left: 0 !important;
-    margin: 0 !important;
-
-    li {
-      display: flex !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      width: 100% !important;
-      padding: 0.2rem 0 !important;
-      margin: 0 !important;
-      border: none !important;
-
-      > div, > p {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        width: 100% !important;
-        margin: 0 !important;
-      }
-
-      a, span, time, .date {
-        font-size: 0.85rem !important;
-        font-weight: 400 !important;
-      }
-
-      a {
-        flex: 1 1 auto !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        margin-right: 1rem !important;
-        text-decoration: none !important;
-      }
-
-      .meta, time, .date {
-        flex: 0 0 auto !important;
-        text-align: right !important;
-        white-space: nowrap !important;
-        font-size: 0.78rem !important;
-        opacity: 0.6 !important;
-      }
-    }
-  }
-}
-
-// ==========================================
-// 5. PC 화면 메인 홈 그리드 설정
-// ==========================================
-.home-grid {
-  display: flex;
-  gap: 2.5rem;
-  text-align: left;
-}
-
-.home-grid > div {
-  flex: 1;
-}
-
-// ==========================================
-// 6. 모바일 화면 반응형 완벽 통합 제어 (max-width: 800px)
+// 7. 모바일 화면 반응형 최종 완벽 제어
 // ==========================================
 @media (max-width: 800px) {
-  /* 1. 페이지 전체 구조 및 그리드 해제 후 중앙 정렬 고정 */
+  /* 1. 페이지 전체 및 바디 컨테이너 초기화 */
   .page {
     max-width: 100% !important;
     width: 100% !important;
     margin: 0 !important;
     padding: 0 1rem !important;
-    align-items: stretch !important; /* PC 전용 center 속성 무력화 및 중앙 배치 안정화 */
+    align-items: stretch !important;
     box-sizing: border-box !important;
   }
 
@@ -204,18 +25,21 @@ div:has(> h3:contains("최신글")),
     box-sizing: border-box !important;
   }
 
-  /* 2. 노트 본문 영역 전체 폭 강제 확장 (오락가락하던 폭 문제 해결) */
+  /* 2. 어떤 노트든 본문이 좁아지지 않도록 바깥 상자들까지 강제 확장 */
   .center, 
   article, 
   main, 
   section, 
   .page-width, 
-  .content-visibility {
+  .content-visibility,
+  div[class*="content"] {
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     box-sizing: border-box !important;
   }
 
@@ -223,7 +47,7 @@ div:has(> h3:contains("최신글")),
   .home-grid {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important; /* 모바일에서 가운데로 이쁘게 모으기 */
+    align-items: center !important;
     gap: 1rem !important;
     width: 100% !important;
   }
@@ -233,7 +57,7 @@ div:has(> h3:contains("최신글")),
     max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
-    text-align: left !important; /* 글자 정렬은 보기 좋게 왼쪽 정렬 유지 */
+    text-align: left !important;
     box-sizing: border-box !important;
   }
 
