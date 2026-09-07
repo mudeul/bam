@@ -211,7 +211,7 @@ plugins:
   - source: "@quartz-community/recent-notes"
     enabled: true
     options:
-      limit: 8
+      limit: 5
       title: "최신글"
   - source: "@quartz-community/spacer"
     enabled: true
@@ -274,8 +274,10 @@ layout:
         right: []
     content:
       positions:
-        afterBody:
-          - RecentNotes   # 콘텐츠 페이지 하단에 다시 출력되도록 설정
+        afterBody: []       # 본문 바로 아래(구분선 밑)에서는 제거
+        footer:
+          - RecentNotes     # 푸터(Created with Quartz...) 바로 위로 이동
+          - Footer          # 기존 푸터 컴포넌트와 함께 배치
     folder:
       exclude:
         - reader-mode
