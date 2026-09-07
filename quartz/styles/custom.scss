@@ -181,27 +181,53 @@ div:has(> h3:contains("최신글")),
 }
 
 // ==========================================
-// 6. 모바일 화면 반응형 통합 제어 (폭 확장 및 단일 열 정렬)
+// 7. 모바일 화면 레이아웃 완전 초기화 및 꽉 찬 폭 강제 (최종)
 // ==========================================
 @media (max-width: 800px) {
-  /* 모바일에서 모든 주요 컨테이너와 본문 폭을 100%로 강제 확장 */
-  .page,
-  #quartz-body,
-  .center,
-  article,
-  .page-width,
-  .content-visibility {
-    max-width: 100% !important;
+  /* 1. HTML, BODY 및 쿼츠의 모든 상위 레이아웃 컨테이너를 강제 100% 폭으로 확장 */
+  html, body, .page, #quartz-body, .center, article, main, section {
     width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
     box-sizing: border-box !important;
-    grid-template-columns: 1fr !important;
   }
 
-  /* 모바일 홈 화면(.home-grid) 세로 배치 및 전체 폭 사용 */
+  /* 2. 페이지 내부의 모든 패딩/마진 충돌을 잡고 모바일 좌우 여백을 1rem으로 고정 */
+  .page {
+    padding: 0 1rem !important;
+  }
+
+  #quartz-body {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    padding: 0 !important;
+  }
+
+  .center {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  article {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* 3. 혹시 남아있을 수 있는 사이드바나 기타 그리드 영역의 잔여 폭 강제 해제 */
+  .left, .right, aside {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 4. 메인 홈(.home-grid) 카드 칸 폭 확장 */
   .home-grid {
     display: flex !important;
     flex-direction: column !important;
