@@ -1,48 +1,5 @@
+@use "./variables.scss" as *;
+
 // ==========================================
-// 5. 모바일 화면 최적화 (초강력 전체 폭 강제 확장)
+// 0. 본문 하단 구분선(hr) 제거
 // ==========================================
-@media (max-width: 800px) {
-  /* PC 전용 사이드바 완전 숨김 */
-  .left, 
-  .right, 
-  aside {
-    display: none !important;
-  }
-
-  /* 바디 및 페이지 전체 컨테이너 폭 100% 강제 */
-  html, body, .page, #quartz-body {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* 쿼츠 본문 및 중앙 정렬 레이아웃 상자의 제한을 완전히 박살냄 */
-  .center, 
-  .page-width, 
-  .content,
-  main,
-  div[class*="center"],
-  div[class*="content"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    box-sizing: border-box !important;
-  }
-
-  /* 아티클 영역 및 내부 모든 글줄/문단 요소 폭 100% 확장 */
-  article, 
-  article > * {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    box-sizing: border-box !important;
-  }
-}
