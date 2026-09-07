@@ -238,34 +238,39 @@ body[data-slug="index"] {
   }
 }
 // ==========================================
-// 6. 쿼츠 v5 모든 페이지 유형(본문·폴더 목록 등) 모바일 폭 제한 완벽 박멸
+// 6. 쿼츠 v5 그리드 레이아웃 및 여백 원천 차단 (최후의 보루)
 // ==========================================
 @media (max-width: 1000px) {
-  /* 쿼츠의 모든 페이지 레이아웃 껍질과 컨테이너 100% 확장 */
-  html, body, .page, #quartz-body, .page-width, .center, .content, main {
+  /* 쿼츠의 메인 레이아웃 그리드 시스템 강제 해제 */
+  #quartz-body, 
+  .page, 
+  .center, 
+  .page-width, 
+  .content,
+  div[class*="grid"],
+  div[class*="layout"] {
+    display: block !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding-left: 0.8rem !important;
-    padding-right: 0.8rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
     box-sizing: border-box !important;
   }
 
-  /* 폴더 페이지, 목록 페이지 등 내부 콘텐츠 래퍼의 고정 폭 해제 */
+  /* 폴더 페이지, 아티클, 목록 등 모든 내부 콘텐츠 박스 폭 제한 해제 */
   article, 
   .content-page,
-  div[class*="content"],
-  div[class*="page"] {
+  div[class*="content"] {
+    display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
     box-sizing: border-box !important;
   }
 
-  /* 내부의 모든 블록 요소 및 목록 항목들도 좁은 박스에 갇히지 않도록 함 */
+  /* 내부 모든 요소들도 화면 폭에 맞게 100% 확장 */
   article > *, 
   .content-page > *,
   .center > * {
