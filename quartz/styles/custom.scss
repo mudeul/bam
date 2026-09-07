@@ -204,25 +204,24 @@ article p {
   flex: 1;
 }
 
-/* 모바일 화면 반응형: 메인 홈(.home-grid) 전용 폭 조절 */
+/* 모바일 화면 반응형 (기준점을 800px로 통일) */
 @media (max-width: 800px) {
   .home-grid {
     flex-direction: column !important;
-    gap: 0.3rem !important;
-    width: 100% !important;
+    gap: 0.3rem !important; /* 세로 간격을 아주 좁게 설정 */
   }
 
-  /* 메인 홈 내부의 카드 칸들만 모바일에서 너비 확보 */
+  /* 모바일에서 각 카테고리 블록을 가운데 정렬하고 내부 여백 제거 */
   .home-grid > div {
     width: 100% !important;
-    max-width: 100% !important; /* 280px 제한을 풀어서 모바일 화면에 시원하게 채움 */
-    box-sizing: border-box !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    max-width: 280px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     text-align: left !important;
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0.5rem !important; /* 블록 자체의 아래 여백 최소화 */
   }
 
+  /* 각 카테고리 내부의 제목과 리스트가 만드는 불필요한 바깥 여백 제거 */
   .home-grid h4 {
     margin-top: 0.5rem !important;
     margin-bottom: 0.2rem !important;
