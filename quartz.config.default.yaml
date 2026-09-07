@@ -149,7 +149,7 @@ plugins:
       groupOptions:
         grow: true
   - source: "@quartz-community/backlinks"
-    enabled: faulse
+    enabled: false
     layout:
       position: right
       priority: 50
@@ -208,8 +208,11 @@ plugins:
     layout:
       position: footer
       priority: 50
-  - source: "@quartz-community/recent-notes"
+ - source: "@quartz-community/recent-notes"
     enabled: true
+    options:
+      limit: 8
+      title: "최신글"
   - source: "@quartz-community/spacer"
     enabled: true
     options: {}
