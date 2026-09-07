@@ -237,3 +237,33 @@ body[data-slug="index"] {
     box-sizing: border-box !important;
   }
 }
+// ==========================================
+// 6. 쿼츠 v5 템플릿 프레임 레벨의 모바일 여백 완전 강제 해제
+// ==========================================
+@media (max-width: 800px) {
+  // 쿼츠 v5 중앙 콘텐츠 영역이 가진 자체 최대 폭 및 그리드 여백 강제 초기화
+  .center {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  // 본문 아티클 영역도 양옆 여백 없이 꽉 채우기
+  article {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+    box-sizing: border-box !important;
+  }
+
+  // 내부 문단 및 블록 요소들 전체 폭 확장
+  article > * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
