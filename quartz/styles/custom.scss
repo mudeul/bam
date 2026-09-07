@@ -159,9 +159,59 @@ div:has(> h3:contains("최신글")),
 }
 
 // ==========================================
-// 모바일 화면 좌우 여백 완전 균등(대칭) 정렬 설정
+// 홈 화면 sheets 목록 좌우 정렬 고정
 // ==========================================
+body[data-slug="index"] {
+  .home-grid ul, 
+  article ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+
+    li {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      width: 100% !important;
+      padding: 0.25rem 0 !important;
+      box-sizing: border-box !important;
+
+      a {
+        flex: 1 1 auto !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        margin-right: 1rem !important;
+        text-decoration: none !important;
+      }
+
+      .date {
+        flex: 0 0 auto !important;
+        text-align: right !important;
+        white-space: nowrap !important;
+        font-size: 0.8rem !important;
+        opacity: 0.6 !important;
+      }
+    }
+  }
+}
 @media (max-width: 1000px) {
+  /* 1. 화면 전체를 감싸는 상위 레이아웃과 그리드의 우측 여백/컬럼 제한 해제 */
+  body,
+  .page,
+  #quartz-body,
+  .page-width,
+  div[class*="grid"],
+  div[class*="layout"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    grid-template-columns: 100% !important; // 우측 빈 공간을 만들던 그리드 컬럼 강제 통일
+    box-sizing: border-box !important;
+  }
+
+  /* 2. 본문 및 폴더 컨테이너 좌우 균등 정렬 */
   .center, 
   .content, 
   article,
@@ -169,11 +219,9 @@ div:has(> h3:contains("최신글")),
   .folder-page {
     width: 100% !important;
     max-width: 100% !important;
-    /* 양쪽 마진을 완전히 죽여서 한쪽으로 쏠리는 현상 원천 차단 */
-    margin: 0 auto !important; 
-    /* 좌우 패딩을 똑같이 0.9rem씩 주어 완벽하게 균등한 대칭 여백 확보 */
-    padding-left: 0.9rem !important;
-    padding-right: 0.9rem !important; 
+    margin: 0 auto !important;
+    padding-left: 0.8rem !important;
+    padding-right: 0.8rem !important;
     box-sizing: border-box !important;
   }
 }
