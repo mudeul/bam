@@ -38,30 +38,7 @@ body[data-slug="index"],
 }
 
 // ==========================================
-// 2. PC 화면 전체 레이아웃 (1000px 고정 & 그리드)
-// ==========================================
-.page {
-  max-width: 1000px !important;
-  margin: 0 auto !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-}
-
-#quartz-body {
-  width: 100% !important;
-  max-width: 1000px !important;
-  display: grid !important;
-  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr) !important; 
-  gap: 2rem !important;
-  margin: 0 auto !important;
-  box-sizing: border-box !important;
-}
-
-// ==========================================
-// 3. 글로벌 타이포그래피 및 글자 크기 고정
+// 2. 글로벌 타이포그래피 및 글자 크기 고정
 // ==========================================
 article, 
 article p, 
@@ -100,7 +77,7 @@ article small a:hover {
 }
 
 // ==========================================
-// 4. RecentNotes(최신글) 한 줄 정렬 커스텀
+// 3. RecentNotes(최신글) 한 줄 정렬 커스텀
 // ==========================================
 div:has(> h3:contains("최신글")), 
 .recent-notes, 
@@ -166,7 +143,7 @@ div:has(> h3:contains("최신글")),
 }
 
 // ==========================================
-// 5. 홈 화면을 2단이 아닌 세로로 길게 쌓기
+// 4. 홈 화면을 2단이 아닌 세로로 길게 쌓기
 // ==========================================
 .home-grid {
   display: flex !important;
@@ -181,73 +158,6 @@ div:has(> h3:contains("최신글")),
   max-width: 100% !important;
 }
 
-// ==========================================
-// 6. 모바일 화면 최적화 (가장 강력한 폭 강제 확장)
-// ==========================================
-@media (max-width: 800px) {
-  /* PC 전용 사이드바 완전 숨김 */
-  .left, 
-  .right, 
-  aside {
-    display: none !important;
-  }
-
-  /* 페이지 전체 및 바디를 무조건 100% 폭으로 설정 */
-  html, body, .page, #quartz-body, .center {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* 본문 영역(.page-width, article 등)의 중앙 정렬 족쇄를 풀고 좌우 여백만 1.2rem 부여 */
-  article, 
-  .page-width, 
-  .content-visibility,
-  div[class*="content"],
-  div[class*="page"],
-  div[class*="body"] {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    padding-left: 1.2rem !important;
-    padding-right: 1.2rem !important;
-    box-sizing: border-box !important;
-  }
-
-  /* 모바일 홈 화면 카드 정렬 */
-  .home-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 1rem !important;
-    width: 100% !important;
-    padding: 0 1rem !important;
-    box-sizing: border-box !important;
-  }
-
-  .home-grid > div {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    text-align: left !important;
-    box-sizing: border-box !important;
-  }
-
-  .home-grid h4 {
-    margin-top: 0.5rem !important;
-    margin-bottom: 0.2rem !important;
-  }
-
-  .home-grid ul {
-    margin-top: 0 !important;
-    margin-bottom: 0.2rem !important;
-    padding-left: 1rem !important;
-  }
-}
 // ==========================================
 // 홈 화면 sheets 목록 좌우 정렬 고정
 // ==========================================
