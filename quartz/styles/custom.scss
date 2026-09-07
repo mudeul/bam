@@ -170,13 +170,15 @@ article a.external {
   font-weight: normal !important;
   font-size: 0.88rem !important;
 }
-/* '더 보기' 같은 small 태그 안의 링크 색상을 연하게 조정 */
-article small a {
-  color: var(--gray) !important; /* 또는 #888888 같은 색상 코드 사용 가능 */
-  opacity: 0.7;
+/* '더 보기' 같은 small 태그 안의 링크 색상을 확실하게 연하게 조정 */
+article small a,
+article small a.internal,
+article small a.external {
+  color: #8b949e !important; /* 은은한 회색 톤 (필요시 #999999 등으로 조절 가능) */
+  opacity: 0.8 !important;
 }
 
-/* 마우스 올렸을 때 살짝 진해지도록 (선택사항) */
 article small a:hover {
-  opacity: 1;
+  color: var(--dark) !important; /* 마우스 올렸을 때 진해지도록 */
+  opacity: 1 !important;
 }
