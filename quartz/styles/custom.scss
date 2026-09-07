@@ -198,19 +198,31 @@ article p {
   flex: 1;
 }
 
-/* 모바일 화면(폭 768px 이하) */
-@media (max-width: 768px) {
+/* 모바일 화면 반응형 (기준점을 800px로 통일) */
+@media (max-width: 800px) {
   .home-grid {
-    flex-direction: column;
-    gap: 0.3rem; /* 기존보다 간격을 절반 정도로 줄임 (원하시는 만큼 0.5rem~1rem 사이로 조절 가능) */
+    flex-direction: column !important;
+    gap: 0.3rem !important; /* 세로 간격을 아주 좁게 설정 */
   }
 
-  /* 모바일에서 각 카테고리 블록 자체를 화면 가운데로 정렬하되, 내부 텍스트는 왼쪽 정렬 유지 */
+  /* 모바일에서 각 카테고리 블록을 가운데 정렬하고 내부 여백 제거 */
   .home-grid > div {
-    width: 100%;
-    max-width: 280px; /* 블록의 최대 너비를 제한하여 너무 퍼지지 않게 고정 */
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left; /* 블록 안의 글씨는 왼쪽 정렬 */
+    width: 100% !important;
+    max-width: 280px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: left !important;
+    margin-bottom: 0.5rem !important; /* 블록 자체의 아래 여백 최소화 */
+  }
+
+  /* 각 카테고리 내부의 제목과 리스트가 만드는 불필요한 바깥 여백 제거 */
+  .home-grid h4 {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .home-grid ul {
+    margin-top: 0 !important;
+    margin-bottom: 0.2rem !important;
   }
 }
