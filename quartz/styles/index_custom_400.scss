@@ -1,0 +1,15 @@
+// 마크다운 본문 안의 모든 이미지를 가운데 정렬하고 크기 제한하기
+article {
+  p {
+    // 이미지를 포함하고 있는 문단 자체를 가운데 정렬
+    text-align: center;
+  }
+  
+  img {
+    max-width: 400px; // 원하는 최대 크기 (예: 400px)
+    width: 100%;       // 모바일에서는 화면에 맞게 반응형으로 축소
+    height: auto;
+    display: block;
+    margin: 0 auto;    // 완벽한 수평 가운데 정렬
+  }
+}
