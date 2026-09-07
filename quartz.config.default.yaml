@@ -209,10 +209,10 @@ plugins:
       position: footer
       priority: 50
   - source: "@quartz-community/recent-notes"
-    enabled: true
+    enabled: false
     options:
       limit: 5
-      title: "최신글"
+      title: "낱장"
   - source: "@quartz-community/spacer"
     enabled: true
     options: {}
@@ -275,7 +275,6 @@ layout:
     content:
       positions:
         afterBody:
-          - RecentNotes
     folder:
       exclude:
         - reader-mode
