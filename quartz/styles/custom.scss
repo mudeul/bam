@@ -43,8 +43,53 @@ article {
   }
 }
 
+@use "./variables.scss" as *;
+
+// put your custom CSS here!
+
 // ==========================================
-// 본문(Article 및 Center) 폭을 550px 수준으로 슬림하게 조절
+// 1. 메인 페이지(index)에만 이미지를 완벽 가운데 정렬 & 크기 조절
+// ==========================================
+body[data-slug="index"], 
+.page[data-slug="index"],
+[data-slug="index"] {
+  article {
+    p {
+      text-align: center;
+    }
+    
+    img {
+      max-width: 450px !important;
+      width: 100% !important;
+      height: auto !important;
+      display: block !important;
+      margin: 1.5rem auto !important;
+    }
+  }
+}
+
+// ==========================================
+// 2. 다른 일반 노트들은 기존 정렬 방식 유지
+// ==========================================
+article {
+  img {
+    // 필요 시 일반 노트 이미지 스타일 조정
+  }
+}
+
+// ==========================================
+// 3. 모바일 화면 여백 부여
+// ==========================================
+@media (max-width: 800px) {
+  .center, .page-container {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    box-sizing: border-box !important;
+  }
+}
+
+// ==========================================
+// 4. 본문(Article) 폭을 550px 수준으로 슬림하게 조절
 // ==========================================
 .center, article, .page > #quartz-body, .page > div {
   max-width: 550px !important;
