@@ -194,12 +194,11 @@ body[data-slug="index"] {
     }
   }
 }
-
 // ==========================================
-// 5 & 6. 모바일 화면 폭 및 그리드 제한 완전 박멸 (최종 강화판)
+// 5 & 6. 모바일 화면 여백 10%까지 완전 박멸 (화면 끝까지 확장)
 // ==========================================
 @media (max-width: 1000px) {
-  /* 쿼츠의 모든 상위 레이아웃 및 그리드 껍질의 최대 폭 제한 해제 */
+  /* 쿼츠 전역 루트 및 최상위 그리드 폭 강제 100% */
   :root {
     --page-width: 100% !important;
     --content-width: 100% !important;
@@ -208,37 +207,40 @@ body[data-slug="index"] {
   body, 
   .page, 
   #quartz-body, 
-  .center, 
-  .page-width, 
-  .content,
-  main,
+  .page-width,
   div[class*="grid"],
-  div[class*="layout"],
-  div[class*="sidebar"] {
-    max-width: 100% !important;
+  div[class*="layout"] {
     width: 100% !important;
-    margin: 0 !important;
-    padding-left: 0.6rem !important;
-    padding-right: 0.6rem !important;
-    box-sizing: border-box !important;
-  }
-
-  /* 본문 및 폴더 페이지의 내부 래퍼 고정 폭 완전 제거 */
-  article, 
-  .content-page,
-  div[class*="content"],
-  div[class*="page"] {
     max-width: 100% !important;
-    width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
     box-sizing: border-box !important;
   }
 
-  /* 내부의 모든 요소들도 화면 끝까지 확장 */
+  /* 본문, 폴더 목록, 센터 컨테이너의 좌우 패딩을 0으로 만들어 화면 끝까지 밀착 */
+  .center, 
+  .content, 
+  main, 
+  article,
+  .content-page,
+  .folder-page,
+  div[class*="content"],
+  div[class*="folder"],
+  div[class*="page"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 내부 모든 요소들도 여백 없이 100% 채우기 */
   article > *, 
+  .content > *,
+  .center > *,
   .content-page > *,
-  .center > * {
+  .folder-page > * {
     max-width: 100% !important;
     box-sizing: border-box !important;
   }
