@@ -1,11 +1,22 @@
 @use "./variables.scss" as *;
 
 // ==========================================
-// 1. 메인 페이지(index)에만 이미지를 완벽 가운데 정렬 & 크기 조절
+// 0. 본문 하단 구분선(hr) 제거
+// ==========================================
+article hr,
+.content-meta + hr,
+hr {
+  display: none !important;
+}
+
+// ==========================================
+// 1. 메인 페이지(index) 전용 설정
 // ==========================================
 body[data-slug="index"], 
 .page[data-slug="index"],
 [data-slug="index"] {
+  
+  // A. 이미지 가운데 정렬 및 크기 조절
   article {
     p {
       text-align: center;
@@ -19,12 +30,14 @@ body[data-slug="index"],
       margin: 1.5rem auto !important;
     }
   }
-}
-/* 본문 영역 및 메타 정보 주변의 모든 구분선(hr) 제거 */
-article hr,
-.content-meta + hr,
-hr {
-  display: none !important;
+
+  // B. 불필요한 제목, 날짜, 읽기 시간, 프론트매터 속성 숨기기
+  .article-title,
+  h1.article-title,
+  .content-meta,
+  .note-properties {
+    display: none !important;
+  }
 }
 
 // ==========================================
@@ -64,27 +77,29 @@ hr {
     flex-direction: column !important;
     width: 100% !important;
   }
+} // <--- 여기에 미디어쿼리 닫는 괄호가 빠져있어 수정했습니다!
+
 // ==========================================
-// RecentNotes(최신글) 완벽 타겟팅 스타일 커스텀
+// 4. RecentNotes(최신글) 스타일 커스텀
 // ==========================================
 div:has(> h3:contains("최신글")), 
 .recent-notes, 
 [class*="recent-notes"] {
   
-  // 1. 컴포넌트 전체 내부 폰트 크기 축소 (2단계)
+  // 컴포넌트 전체 내부 폰트 크기 축소 (2단계) 및 볼드체 제거
   * {
     font-size: 0.85rem !important;
-    font-weight: 400 !important; // 굵기(볼드체) 전면 제거
+    font-weight: 400 !important;
   }
 
-  // 2. 타이틀("최신글") 스타일 다듬기
+  // 타이틀("최신글") 스타일
   h3, h4 {
     font-size: 0.95rem !important;
     font-weight: 500 !important;
     margin-bottom: 0.8rem !important;
   }
 
-  // 3. 태그 숨기기
+  // 태그 숨기기
   ul li .tags, 
   ul li .tag-badge, 
   .tag, 
@@ -92,7 +107,7 @@ div:has(> h3:contains("최신글")),
     display: none !important;
   }
 
-  // 4. 목록을 한 줄로 배치 (제목 왼쪽, 날짜 오른쪽)
+  // 목록 한 줄 배치 (제목 왼쪽, 날짜 오른쪽)
   ul {
     list-style: none !important;
     padding-left: 0 !important;
@@ -125,5 +140,4 @@ div:has(> h3:contains("최신글")),
       }
     }
   }
-}
 }
