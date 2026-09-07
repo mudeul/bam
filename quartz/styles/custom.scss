@@ -20,8 +20,9 @@ body[data-slug="index"],
     }
   }
 }
-
-/* 본문 하단 구분선(HR) 숨기기 */
-article hr {
-  display: none;
+/* 본문 영역 및 메타 정보 주변의 모든 구분선(hr) 제거 */
+article hr,
+.content-meta + hr,
+hr {
+  display: none !important;
 }
