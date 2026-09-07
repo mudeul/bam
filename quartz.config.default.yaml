@@ -7,7 +7,7 @@ configuration:
   analytics:
     provider: plausible
   locale: en-US
-  baseUrl: mudeul.github.io/quartz-notes-5
+  baseUrl: mudeul.github.io/baram
   ignorePatterns:
     - private
     - templates
