@@ -64,7 +64,7 @@ body[data-slug="index"],
 }
 
 // ==========================================
-// 3. 모바일 화면 반응형 안전장치
+// 3. 모바일 화면 반응형 안전장치 (노트 본문 폭 확장 포함)
 // ==========================================
 @media (max-width: 800px) {
   .page {
@@ -76,9 +76,15 @@ body[data-slug="index"],
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
+    padding: 0 0.5rem !important; // 모바일에서 좌우 여백을 줄여 본문 폭을 넓힘
   }
-} // <--- 여기에 미디어쿼리 닫는 괄호가 빠져있어 수정했습니다!
 
+  // 노트 본문(article) 영역이 화면 폭을 충분히 쓰도록 설정
+  article {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
 // ==========================================
 // 4. RecentNotes(최신글) 완벽 한 줄 정렬 커스텀
 // ==========================================
