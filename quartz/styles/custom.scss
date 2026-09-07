@@ -196,37 +196,44 @@ body[data-slug="index"] {
 }
 
 // ==========================================
-// 5. 모바일 화면 최적화 (초강력 전체 폭 강제 확장)
+// 5. 모바일 화면 최적화 (최종 여백 박멸 버전)
 // ==========================================
 @media (max-width: 1000px) {
-  /* 쿼츠의 레이아웃 관련 모든 상위 컨테이너의 최대 너비 제한 해제 */
-  body, 
-  .page, 
-  #quartz-body, 
+  /* 쿼츠 전역 레이아웃 변수 및 페이지 폭 제한 강제 해제 */
+  :root {
+    --page-width: 100% !important;
+    --desktop-width: 100% !important;
+  }
+
+  /* HTML, Body 및 모든 상위 레이아웃 껍질의 마진/패딩 제거 */
+  html, body, .page, #quartz-body, .page-width {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 본문 영역 및 센터 컨테이너의 강제 중앙 정렬과 패딩 제거 후 전체 폭 확장 */
   .center, 
-  .page-width, 
   .content, 
   main, 
-  article {
+  article,
+  div[class*="center"],
+  div[class*="content"] {
     width: 100% !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    /* 모바일에서 글자가 화면 벽에 너무 붙지 않도록 최소한의 여백(0.8rem)만 부여 */
+    padding-left: 0.8rem !important;
+    padding-right: 0.8rem !important;
     box-sizing: border-box !important;
   }
 
-  /* 본문 내부의 모든 문단, 제목, 블록 요소들이 좁은 박스에 갇히지 않도록 함 */
+  /* 내부 모든 블록 요소들도 100% 폭으로 확장 */
   article > *, 
-  .content > *,
-  .center > * {
+  .content > * {
     max-width: 100% !important;
     box-sizing: border-box !important;
-  }
-
-  /* 화면 양옆에 적당한 모바일 안전 패딩만 부여 */
-  article {
-    padding-left: 1.2rem !important;
-    padding-right: 1.2rem !important;
   }
 }
