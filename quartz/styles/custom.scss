@@ -203,21 +203,27 @@ article p {
 .home-grid > div {
   flex: 1;
 }
-/* 모바일 화면 반응형: 노트 본문 및 홈 화면 폭 전체 확장 */
+/* 모바일 화면 반응형: 본문 및 홈 화면 폭 강제 확장 */
 @media (max-width: 800px) {
-  /* 1. 쿼츠 기본 본문 컨테이너 폭 제한 해제 */
-  .center, 
-  article, 
-  .page > #quartz-body {
+  /* 쿼츠 전체 페이지 및 본문 컨테이너들의 최대 폭 제한을 강제로 해제 */
+  .page,
+  #quartz-body,
+  .center,
+  article,
+  .page-width,
+  .content-visibility {
     max-width: 100% !important;
     width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     padding-left: 1rem !important;
     padding-right: 1rem !important;
     box-sizing: border-box !important;
   }
 
-  /* 2. 메인 홈(.home-grid) 카드 칸들도 280px 제한 풀고 꽉 채우기 */
+  /* 메인 홈(.home-grid)도 화면에 꽉 차게 정렬 */
   .home-grid {
+    display: flex !important;
     flex-direction: column !important;
     gap: 0.3rem !important;
     width: 100% !important;
@@ -225,11 +231,10 @@ article p {
 
   .home-grid > div {
     width: 100% !important;
-    max-width: 100% !important; /* 280px 제한 완전 해제 */
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
     text-align: left !important;
-    margin-bottom: 0.5rem !important;
     box-sizing: border-box !important;
   }
 
@@ -241,5 +246,6 @@ article p {
   .home-grid ul {
     margin-top: 0 !important;
     margin-bottom: 0.2rem !important;
+    padding-left: 1rem !important; /* 모바일에서 리스트가 너무 붙지 않게 살짝 들여쓰기 */
   }
 }
