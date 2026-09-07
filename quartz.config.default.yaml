@@ -3,7 +3,7 @@ configuration:
   pageTitle: 높이 부는 바람
   pageTitleSuffix: ""
   enableSPA: false
-  enablePopovers: true
+  enablePopovers: false
   analytics:
     provider: plausible
   locale: en-US
