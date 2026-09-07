@@ -1,3 +1,84 @@
+@use "./variables.scss" as *;
+
+// ==========================================
+// 0. 본문 하단 구분선(hr) 제거
+// ==========================================
+article hr,
+.content-meta + hr,
+hr {
+  display: none !important;
+}
+
+// ==========================================
+// 1. 메인 페이지(index) 전용 설정
+// ==========================================
+body[data-slug="index"], 
+.page[data-slug="index"],
+[data-slug="index"] {
+  
+  // A. 이미지 가운데 정렬 및 크기 조절
+  article {
+    p {
+      text-align: center;
+    }
+    
+    img {
+      max-width: 450px !important;
+      width: 100% !important;
+      height: auto !important;
+      display: block !important;
+      margin: 1.5rem auto !important;
+    }
+  }
+
+  // B. 불필요한 제목, 날짜, 읽기 시간, 프론트매터 속성 숨기기
+  .article-title,
+  h1.article-title,
+  .content-meta,
+  .note-properties {
+    display: none !important;
+  }
+}
+
+// ==========================================
+// 2. 사이드바 포함 전체 레이아웃 폭을 1000px로 고정
+// ==========================================
+.page {
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+#quartz-body {
+  width: 100% !important;
+  max-width: 1000px !important;
+  display: grid !important;
+  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr) !important; 
+  gap: 2rem !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+// ==========================================
+// 3. 모바일 화면 반응형 안전장치
+// ==========================================
+@media (max-width: 800px) {
+  .page {
+    max-width: 100% !important;
+    padding: 0 1rem !important;
+  }
+  
+  #quartz-body {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+} // <--- 여기에 미디어쿼리 닫는 괄호가 빠져있어 수정했습니다!
+
 // ==========================================
 // 4. RecentNotes(최신글) 스타일 커스텀 (완전한 한 줄 정렬)
 // ==========================================
