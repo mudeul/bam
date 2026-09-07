@@ -3,35 +3,29 @@
 // put your custom CSS here!
 
 // ==========================================
-// 본문 및 이미지 중앙 정렬 & 모바일 여백 최적화
+// 본문 글자 왼쪽 정렬 유지 & 사진만 완벽 가운데 정렬
 // ==========================================
 
-// 1. 본문(Article) 전체 영역 최대 폭 및 중앙 정렬 (모바일 쏠림 방지)
+// 1. 본문 내 이미지를 감싼 문단과 이미지 자체를 중앙 정렬
 article {
-  max-width: 750px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  box-sizing: border-box !important;
-  
-  // 2. 본문 내 이미지를 감싼 문단 정렬
   p {
-    text-align: center; 
+    text-align: center; // 이미지가 포함된 문단 정렬
   }
   
-  // 3. 본문 내 모든 이미지 크기 제한 및 수평 중앙 정렬
   img {
-    max-width: 450px !important; // 필요에 따라 이미지 최대 크기 조절 가능
+    max-width: 450px !important; // 이미지 최대 크기 조절
     width: 100% !important;
     height: auto !important;
     display: block !important;
-    margin: 0 auto !important; 
+    margin: 1.5rem auto !important; // 위아래 여백을 두고 좌우 수평 중앙 정렬
   }
 }
 
-// 4. 모바일 화면(작은 화면) 최적화: 좌우 여백 균형 확보
+// 2. 모바일 화면에서 글이나 이미지가 한쪽으로 쏠리지 않도록 전체 컨테이너에 안전 여백 부여
 @media (max-width: 800px) {
-  .page-container, article, .center {
+  .center, .page-container {
     padding-left: 1.25rem !important;
     padding-right: 1.25rem !important;
+    box-sizing: border-box !important;
   }
 }
