@@ -274,8 +274,11 @@ layout:
         right: []
     content:
       positions:
+        afterBody: []   # 일반 본문 아래에서는 제거
+    index:
+      positions:
         afterBody:
-          - RecentNotes   # 본문 아래쪽에 최신글 목록이 출력되도록 지정
+          - RecentNotes   # 오직 대문(index) 페이지 본문 아래에만 출력
     folder:
       exclude:
         - reader-mode
