@@ -181,7 +181,7 @@ div:has(> h3:contains("최신글")),
 }
 
 // ==========================================
-// 6. 모바일 화면 최적화 (사이드바 숨김 & 여백 꽉 채우기)
+// 6. 모바일 화면 최적화 (너비 제한 완전 해제 & 꽉 채우기)
 // ==========================================
 @media (max-width: 800px) {
   /* PC 전용 사이드바 영역 숨김 */
@@ -191,17 +191,8 @@ div:has(> h3:contains("최신글")),
     display: none !important;
   }
 
-  /* 페이지 전체 좌우 여백을 완전히 없애서 화면 끝까지 확장 */
-  .page {
-    max-width: 100% !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important; // 기존 0 1rem에서 0으로 변경하여 여백 제거
-    align-items: stretch !important;
-    box-sizing: border-box !important;
-  }
-
-  /* 본문 바디 영역도 100% 꽉 채우기 */
+  /* 페이지 전체 및 바디 컨테이너 폭 100% 강제 */
+  .page, 
   #quartz-body {
     display: flex !important;
     flex-direction: column !important;
@@ -209,27 +200,28 @@ div:has(> h3:contains("최신글")),
     max-width: 100% !important;
     min-width: 0 !important;
     grid-template-columns: none !important;
-    gap: 1rem !important;
     margin: 0 !important;
-    padding: 0 1rem !important; // 글자가 화면 벽에 너무 붙지 않도록 여기에 안전 여백(1rem) 부여
+    padding: 0 !important;
     box-sizing: border-box !important;
   }
 
-  /* 본문 내부 컨테이너 제한 풀기 */
+  /* 본문을 감싸는 모든 레이아웃 상자의 너비 제한을 완전히 무력화 */
   .center, 
   article, 
   main, 
   section, 
   .page-width, 
   .content-visibility,
-  div[class*="content"] {
+  div[class*="content"],
+  div[class*="page"],
+  div[class*="body"] {
     width: 100% !important;
-    max-width: none !important;
+    max-width: 100% !important;
     min-width: 0 !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-left: 1rem !important;  // 글자가 화면 벽에 붙지 않도록 주는 좌우 안전 여백
+    padding-right: 1.0rem !important;
     box-sizing: border-box !important;
   }
 
@@ -240,6 +232,8 @@ div:has(> h3:contains("최신글")),
     align-items: center !important;
     gap: 1rem !important;
     width: 100% !important;
+    padding: 0 1rem !important;
+    box-sizing: border-box !important;
   }
 
   .home-grid > div {
