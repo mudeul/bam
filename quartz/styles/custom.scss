@@ -20,3 +20,8 @@ body[data-slug="index"],
     }
   }
 }
+
+/* 본문 하단 구분선(HR) 숨기기 */
+article hr {
+  display: none;
+}
