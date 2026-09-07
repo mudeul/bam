@@ -272,7 +272,10 @@ layout:
         beforeBody: []
         left: []
         right: []
-    content: {}
+    content:
+      positions:
+        afterBody:
+          - RecentNotes   # 본문 아래쪽에 최신글 목록이 출력되도록 지정
     folder:
       exclude:
         - reader-mode
