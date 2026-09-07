@@ -182,3 +182,13 @@ article small a:hover {
   color: var(--dark) !important; /* 마우스 올렸을 때 진해지도록 */
   opacity: 1 !important;
 }
+/* 노트 링크 목록을 최신글처럼 더 깔끔하게 다듬기 */
+article a.internal, 
+article a.external {
+  background-color: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  font-weight: 400 !important; /* 너무 얇거나 두껍지 않은 표준 두께 */
+  font-size: 0.9rem !important;
+  letter-spacing: -0.01em;     /* 자간을 살짝 좁혀서 모던한 느낌 주기 */
+}
