@@ -1,3 +1,37 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+// ==========================================
+// 본문 및 이미지 중앙 정렬 & 모바일 여백 최적화
+// ==========================================
+
+// 1. 본문(Article) 전체 영역 최대 폭 및 중앙 정렬 (모바일 쏠림 방지)
+article {
+  max-width: 750px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+  
+  // 2. 본문 내 이미지를 감싼 문단 정렬
+  p {
+    text-align: center; 
+  }
+  
+  // 3. 본문 내 모든 이미지 크기 제한 및 수평 중앙 정렬
+  img {
+    max-width: 450px !important; // 필요에 따라 이미지 최대 크기 조절 가능
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important; 
+  }
+}
+
+// 4. 모바일 화면(작은 화면) 최적화: 좌우 여백 균형 확보
+@media (max-width: 800px) {
+  .page-container, article, .center {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+}
