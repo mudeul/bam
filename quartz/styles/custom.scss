@@ -215,7 +215,7 @@ div:has(> h3:contains("최신글")),
     box-sizing: border-box !important;
   }
 
-  /* 본문 영역이 글마다 좁아지지 않고 화면에 꽉 차게 설정 */
+  /* 2. 본문 영역이 글마다 좁아지지 않고 화면 양옆에 딱 맞게 확장 */
   .center, 
   article, 
   main, 
@@ -224,7 +224,7 @@ div:has(> h3:contains("최신글")),
   .content-visibility,
   div[class*="content"] {
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: none !important; /* 이 부분이 max-width 제한을 완전히 풀어줍니다 */
     min-width: 0 !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
