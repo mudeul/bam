@@ -22,19 +22,36 @@ body[data-slug="index"],
 }
 
 // ==========================================
-// 2. 전체 페이지 레이아웃 폭을 슬림하게 모아주기 (ellie.wtf 스타일)
+// 2. 모든 페이지의 가로 폭을 완벽하게 균일하게 고정 (오류 방지 핵심)
 // ==========================================
-.page {
-  max-width: 900px !important; // 전체 레이아웃(사이드바 + 본문 포함)의 최대 폭 지정
-  margin: 0 auto !important;    // 화면 중앙 정렬
+// 쿼츠의 본문 및 컨테이너 그리드를 강제로 동일한 폭으로 제한합니다.
+.center, 
+.page > #quartz-body, 
+.page-container,
+div.center {
+  max-width: 700px !important; // 글 본문과 주변 여백을 포함한 전체 폭을 700px로 일치
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+// 개별 노트 안의 글 본문(article)도 널뛰지 않도록 동일하게 폭 제한
+article {
+  max-width: 100% !important;
+  width: 100% !important;
 }
 
 // ==========================================
-// 3. 모바일 화면 여백 및 반응형 처리
+// 3. 모바일 화면 반응형 안전장치
 // ==========================================
 @media (max-width: 800px) {
-  .page {
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+  .center, 
+  .page > #quartz-body, 
+  .page-container,
+  div.center {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    max-width: 100% !important;
   }
 }
