@@ -41,7 +41,7 @@ body[data-slug="index"],
 }
 
 // ==========================================
-// 2. PC/기본 전체 레이아웃 (1000px 고정 & 그리드)
+// 2. PC 전용 전체 레이아웃 (1000px 고정 & 그리드)
 // ==========================================
 .page {
   max-width: 1000px !important;
@@ -66,7 +66,6 @@ body[data-slug="index"],
 // ==========================================
 // 3. 글로벌 타이포그래피 및 링크 스타일 정돈
 // ==========================================
-/* 노트 링크 목록 스타일 조정 */
 article ul {
   list-style: none !important; 
   padding-left: 0 !important;  
@@ -81,7 +80,6 @@ article a.external {
   font-size: 0.88rem !important;
 }
 
-/* '더 보기' 같은 small 태그 안의 링크 색상 */
 article small a,
 article small a.internal,
 article small a.external {
@@ -94,7 +92,6 @@ article small a:hover {
   opacity: 1 !important;
 }
 
-/* 본문(p 태그)의 글자 크기 및 줄 간격 */
 article p {
   font-size: 0.85rem !important; 
   line-height: 1.6 !important;     
@@ -181,57 +178,53 @@ div:has(> h3:contains("최신글")),
 }
 
 // ==========================================
-// 7. 모바일 화면 레이아웃 완전 초기화 및 꽉 찬 폭 강제 (최종)
+// 6. 모바일 화면 반응형 완벽 통합 제어 (max-width: 800px)
 // ==========================================
 @media (max-width: 800px) {
-  /* 1. HTML, BODY 및 쿼츠의 모든 상위 레이아웃 컨테이너를 강제 100% 폭으로 확장 */
-  html, body, .page, #quartz-body, .center, article, main, section {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* 2. 페이지 내부의 모든 패딩/마진 충돌을 잡고 모바일 좌우 여백을 1rem으로 고정 */
+  /* 1. 페이지 전체 구조 및 그리드 해제 후 중앙 정렬 고정 */
   .page {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
     padding: 0 1rem !important;
+    align-items: stretch !important; /* PC 전용 center 속성 무력화 및 중앙 배치 안정화 */
+    box-sizing: border-box !important;
   }
 
   #quartz-body {
     display: flex !important;
     flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-template-columns: none !important;
     gap: 1rem !important;
-    padding: 0 !important;
-  }
-
-  .center {
-    padding: 0 !important;
-    margin: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  article {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  /* 3. 혹시 남아있을 수 있는 사이드바나 기타 그리드 영역의 잔여 폭 강제 해제 */
-  .left, .right, aside {
-    width: 100% !important;
-    max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
+    box-sizing: border-box !important;
   }
 
-  /* 4. 메인 홈(.home-grid) 카드 칸 폭 확장 */
+  /* 2. 노트 본문 영역 전체 폭 강제 확장 (오락가락하던 폭 문제 해결) */
+  .center, 
+  article, 
+  main, 
+  section, 
+  .page-width, 
+  .content-visibility {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 3. 모바일 홈 화면(.home-grid) 가운데 정렬 및 세로 배치 */
   .home-grid {
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.3rem !important;
+    align-items: center !important; /* 모바일에서 가운데로 이쁘게 모으기 */
+    gap: 1rem !important;
     width: 100% !important;
   }
 
@@ -240,7 +233,7 @@ div:has(> h3:contains("최신글")),
     max-width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
-    text-align: left !important;
+    text-align: left !important; /* 글자 정렬은 보기 좋게 왼쪽 정렬 유지 */
     box-sizing: border-box !important;
   }
 
