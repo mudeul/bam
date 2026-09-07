@@ -22,27 +22,19 @@ body[data-slug="index"],
 }
 
 // ==========================================
-// 2. 모든 노트의 본문(article) 폭을 550px로 균일하게 고정
+// 2. 전체 페이지 레이아웃 폭을 슬림하게 모아주기 (ellie.wtf 스타일)
 // ==========================================
-article {
-  max-width: 550px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+.page {
+  max-width: 900px !important; // 전체 레이아웃(사이드바 + 본문 포함)의 최대 폭 지정
+  margin: 0 auto !important;    // 화면 중앙 정렬
 }
 
 // ==========================================
 // 3. 모바일 화면 여백 및 반응형 처리
 // ==========================================
 @media (max-width: 800px) {
-  .center, .page-container {
-    padding-left: 1.25rem !important;
-    padding-right: 1.25rem !important;
-    box-sizing: border-box !important;
-  }
-}
-
-@media (max-width: 600px) {
-  article {
-    max-width: 100% !important;
+  .page {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 }
