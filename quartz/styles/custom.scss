@@ -22,19 +22,26 @@ body[data-slug="index"],
 }
 
 // ==========================================
-// 2. 모든 페이지의 전체 레이아웃 폭을 균일하게 고정
+// 2. 사이드바 포함 전체 레이아웃 폭을 950px로 엄격하게 고정
 // ==========================================
 .page {
-  max-width: 900px !important; // 전체 사이트가 차지하는 최대 폭
+  max-width: 950px !important;
   margin: 0 auto !important;
   width: 100% !important;
   box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
 }
 
-#quartz-body, 
-.page-container {
-  max-width: 100% !important;
+#quartz-body {
+  width: 100% !important;
+  max-width: 950px !important;
+  display: grid !important;
+  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr) !important; 
+  gap: 2rem !important;
   margin: 0 auto !important;
+  box-sizing: border-box !important;
 }
 
 // ==========================================
@@ -43,7 +50,12 @@ body[data-slug="index"],
 @media (max-width: 800px) {
   .page {
     max-width: 100% !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important; // 오타 수정 완료
+    padding: 0 1rem !important;
+  }
+  
+  #quartz-body {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
   }
 }
