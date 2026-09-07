@@ -193,6 +193,74 @@ div:has(> h3:contains("최신글")),
     display: none !important;
   }
 
+  /* 페이지 전체 폭 및 그리드 구조 해제 */
+  .page, 
+  #quartz-body {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    grid-template-columns: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 💡 핵심: 본문을 감싸는 모든 상자의 최대 너비 제한을 무력화하고 좌우 여백 확보 */
+  .center, 
+  article, 
+  main, 
+  section, 
+  .page-width, 
+  .content-visibility,
+  .popover-hint,
+  div[class*="content"],
+  div[class*="page"],
+  div[class*="body"],
+  div[class*="center"] {
+    width: 100% !important;
+    max-width: none !important; /* 이 부분이 좁은 박스로 가두는 원인을 부숩니다 */
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 1.2rem !important;  // 화면 양끝에 너무 붙지 않도록 주는 안전 여백
+    padding-right: 1.2rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 모바일 홈 화면 카드 정렬 */
+  .home-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    padding: 0 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .home-grid > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    box-sizing: border-box !important;
+  }
+
+  .home-grid h4 {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .home-grid ul {
+    margin-top: 0 !important;
+    margin-bottom: 0.2rem !important;
+    padding-left: 1rem !important;
+  }
+}
+
   /* 페이지 전체 및 바디 컨테이너 폭 100% 강제 */
   .page, 
   #quartz-body {
