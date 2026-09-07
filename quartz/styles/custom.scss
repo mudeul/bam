@@ -182,13 +182,25 @@ article small a:hover {
   color: var(--dark) !important; /* 마우스 올렸을 때 진해지도록 */
   opacity: 1 !important;
 }
-/* 노트 링크 목록을 최신글처럼 더 깔끔하게 다듬기 */
-article a.internal, 
-article a.external {
+/* sheets 목록을 최신글(RecentNotes)과 완전히 동일한 스타일로 맞추기 */
+article ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+article li a.internal, 
+article li a.external {
+  font-family: var(--bodyFont) !important; /* 쿼츠 본문 폰트 강제 상속 */
+  font-size: 0.95rem !important;          /* 최신글 기본 크기감 */
+  font-weight: 400 !important;
+  color: var(--dark) !important;
   background-color: transparent !important;
   padding: 0 !important;
   border-radius: 0 !important;
-  font-weight: 400 !important; /* 너무 얇거나 두껍지 않은 표준 두께 */
-  font-size: 0.9rem !important;
-  letter-spacing: -0.01em;     /* 자간을 살짝 좁혀서 모던한 느낌 주기 */
+}
+
+/* 최신글 링크에 마우스 올렸을 때의 색상 반응도 동일하게 맞추기 */
+article li a.internal:hover, 
+article li a.external:hover {
+  color: var(--secondary) !important;
 }
