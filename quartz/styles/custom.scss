@@ -64,53 +64,64 @@ hr {
     flex-direction: column !important;
     width: 100% !important;
   }
-
 // ==========================================
-// RecentNotes(최신글) 스타일 커스텀
+// RecentNotes(최신글) 완벽 타겟팅 스타일 커스텀
 // ==========================================
-.recent-notes, .recent-notes-content {
-  // 1. "최신글" 타이틀은 유지하되, 나머지 내부 텍스트 폰트 크기 줄이기 (2단계 축소)
-  ul li, p, span, a {
-    font-size: 0.85rem !important; // 기존 대비 폰트 크기 축소
+div:has(> h3:contains("최신글")), 
+.recent-notes, 
+[class*="recent-notes"] {
+  
+  // 1. 컴포넌트 전체 내부 폰트 크기 축소 (2단계)
+  * {
+    font-size: 0.85rem !important;
+    font-weight: 400 !important; // 굵기(볼드체) 전면 제거
   }
 
-  // 2. 제목과 태그 등의 기본 볼드체(굵게) 제거
-  a, strong, b {
-    font-weight: 400 !important;
+  // 2. 타이틀("최신글") 스타일 다듬기
+  h3, h4 {
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    margin-bottom: 0.8rem !important;
   }
 
   // 3. 태그 숨기기
-  .tags, .tag-badge {
+  ul li .tags, 
+  ul li .tag-badge, 
+  .tag, 
+  span.tags {
     display: none !important;
   }
 
-  // 4. 한 줄 레이아웃: 제목은 왼쪽, 날짜는 오른쪽으로 배치
+  // 4. 목록을 한 줄로 배치 (제목 왼쪽, 날짜 오른쪽)
   ul {
-    list-style: none;
-    padding-left: 0;
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
 
     li {
       display: flex !important;
       justify-content: space-between !important;
       align-items: center !important;
       width: 100% !important;
-      margin-bottom: 0.6rem !important;
+      padding: 0.3rem 0 !important;
+      border: none !important;
 
       // 링크(제목) 영역
       a {
-        flex-grow: 1;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin-right: 1rem;
+        flex: 1 1 auto !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        margin-right: 1rem !important;
+        text-decoration: none !important;
         font-weight: 400 !important;
       }
 
-      // 날짜 영역 (오른쪽 정렬)
-      .meta, time, .date {
-        flex-shrink: 0;
-        font-size: 0.8rem !important;
-        opacity: 0.7;
+      // 날짜 영역 (오른쪽 고정)
+      time, .date, span:last-child {
+        flex: 0 0 auto !important;
+        font-size: 0.78rem !important;
+        opacity: 0.6 !important;
       }
     }
   }
