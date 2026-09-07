@@ -202,7 +202,7 @@ article p {
 @media (max-width: 768px) {
   .home-grid {
     flex-direction: column;
-    gap: 0.75rem; /* 기존보다 간격을 절반 정도로 줄임 (원하시는 만큼 0.5rem~1rem 사이로 조절 가능) */
+    gap: 0.3rem; /* 기존보다 간격을 절반 정도로 줄임 (원하시는 만큼 0.5rem~1rem 사이로 조절 가능) */
   }
 
   /* 모바일에서 각 카테고리 블록 자체를 화면 가운데로 정렬하되, 내부 텍스트는 왼쪽 정렬 유지 */
