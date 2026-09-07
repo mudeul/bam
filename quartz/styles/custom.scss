@@ -80,7 +80,7 @@ body[data-slug="index"],
 } // <--- 여기에 미디어쿼리 닫는 괄호가 빠져있어 수정했습니다!
 
 // ==========================================
-// 4. RecentNotes(최신글) 완벽 한 줄 정렬 스타일
+// 4. RecentNotes(최신글) 간격 좁히기 및 우측 정렬 커스텀
 // ==========================================
 div:has(> h3:contains("최신글")), 
 .recent-notes, 
@@ -90,7 +90,7 @@ div:has(> h3:contains("최신글")),
   h3, h4 {
     font-size: 0.95rem !important;
     font-weight: 500 !important;
-    margin-bottom: 0.8rem !important;
+    margin-bottom: 0.4rem !important;
   }
 
   // 태그 숨기기
@@ -110,34 +110,33 @@ div:has(> h3:contains("최신글")),
     li {
       display: flex !important;
       flex-direction: row !important;
-      justify-content: space-between !important;
+      justify-content: space-between !important; // 양 끝으로 완전 분리
       align-items: center !important;
       width: 100% !important;
-      padding: 0.35rem 0 !important;
+      padding: 0.15rem 0 !important;              // 항목 간 상하 간격을 반 이상 좁힘
+      margin: 0 !important;
       border: none !important;
 
-      // li 바로 아래의 모든 내부 래퍼(div, p 등)가 줄바꿈하지 않도록 강제 설정
-      > * {
-        display: inline-flex !important;
-        align-items: center !important;
-        margin: 0 !important;
+      // 글자 크기 및 볼드체 제거
+      a, span, time, .date {
         font-size: 0.85rem !important;
         font-weight: 400 !important;
       }
 
-      // 링크(제목) 영역
+      // 링크(제목) 영역 (왼쪽)
       a {
         flex: 1 1 auto !important;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
-        margin-right: 1.5rem !important;
+        margin-right: 1rem !important;
         text-decoration: none !important;
       }
 
-      // 날짜 영역 (오른쪽 고정, 줄바꿈 방지)
+      // 날짜 영역 (오른쪽 끝으로 완전히 밀어내기)
       .meta, time, .date, span {
         flex: 0 0 auto !important;
+        text-align: right !important;
         white-space: nowrap !important;
         font-size: 0.78rem !important;
         opacity: 0.6 !important;
