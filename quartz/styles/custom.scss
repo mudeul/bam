@@ -42,17 +42,17 @@ article {
 }
 
 // ==========================================
-// 4. 본문(Article) 폭을 550px 수준으로 슬림하게 조절
+// 4. [수정됨] 사이드바는 그대로 두고 글 본문(article)만 슬림하게 조절
 // ==========================================
-.center, article, .page > #quartz-body, .page > div {
-  max-width: 550px !important;
+.center {
+  max-width: 550px !important; // 본문 영역만 폭 제한
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
 // 모바일 화면에서는 화면 너비에 맞게 꽉 차도록 안전장치
 @media (max-width: 600px) {
-  .center, article, .page > #quartz-body, .page > div {
+  .center {
     max-width: 100% !important;
   }
 }
