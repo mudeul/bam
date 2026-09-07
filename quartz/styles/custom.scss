@@ -238,31 +238,37 @@ body[data-slug="index"] {
   }
 }
 // ==========================================
-// 6. 쿼츠 v5 템플릿 프레임 레벨의 모바일 여백 완전 강제 해제
+// 6. 쿼츠 v5 모든 페이지 유형(본문·폴더 목록 등) 모바일 폭 제한 완벽 박멸
 // ==========================================
-@media (max-width: 800px) {
-  // 쿼츠 v5 중앙 콘텐츠 영역이 가진 자체 최대 폭 및 그리드 여백 강제 초기화
-  .center {
-    max-width: 100% !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-    box-sizing: border-box !important;
-  }
-
-  // 본문 아티클 영역도 양옆 여백 없이 꽉 채우기
-  article {
+@media (max-width: 1000px) {
+  /* 쿼츠의 모든 페이지 레이아웃 껍질과 컨테이너 100% 확장 */
+  html, body, .page, #quartz-body, .page-width, .center, .content, main {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
+    padding-left: 0.8rem !important;
+    padding-right: 0.8rem !important;
     box-sizing: border-box !important;
   }
 
-  // 내부 문단 및 블록 요소들 전체 폭 확장
-  article > * {
+  /* 폴더 페이지, 목록 페이지 등 내부 콘텐츠 래퍼의 고정 폭 해제 */
+  article, 
+  .content-page,
+  div[class*="content"],
+  div[class*="page"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 내부의 모든 블록 요소 및 목록 항목들도 좁은 박스에 갇히지 않도록 함 */
+  article > *, 
+  .content-page > *,
+  .center > * {
     max-width: 100% !important;
     box-sizing: border-box !important;
   }
