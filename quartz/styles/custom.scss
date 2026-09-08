@@ -1,37 +1,56 @@
 // ==========================================
-// 홈 화면 및 최신글(RecentNotes) 목록 완벽 정렬 커스텀 (15개 리스트 대응)
+// 4. RecentNotes(최신글) 완벽 한 줄 정렬 커스텀 (최종 완성본)
 // ==========================================
+div:has(> h3:contains("최신글")), 
+.recent-notes, 
+[class*="recent-notes"],
 .folder-page,
 .section,
 .page-content,
 .home-grid,
-.recent-notes,
-[class*="recent-notes"],
 [class*="folder"] {
+  
+  h3, h4 {
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    margin-bottom: 0.4rem !important;
+  }
+
   ul {
     list-style: none !important;
     padding-left: 0 !important;
     margin: 0 !important;
 
     li {
-      list-style: none !important;
-      list-style-type: none !important;
       display: flex !important;
       justify-content: space-between !important;
       align-items: center !important;
       width: 100% !important;
-      
+      padding: 0.35rem 0 !important;
+      margin: 0 !important;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.12) !important;
+      list-style: none !important;
+      list-style-type: none !important;
+
       &::marker {
         display: none !important;
         content: "" !important;
       }
 
-      /* 위아래 간격 및 연한 구분선 설정 */
-      padding: 0.35rem 0 !important;
-      margin: 0 !important;
-      border-bottom: 1px solid rgba(128, 128, 128, 0.12) !important;
+      // 내부 래퍼(div, p 등)가 줄바꿈하지 않도록 플렉스 적용
+      > div, > p {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+      }
 
-      /* 링크(글 제목) 스타일: 왼쪽 정렬 및 말줄임 */
+      a, span, time, .date {
+        font-size: 0.85rem !important;
+        font-weight: 400 !important;
+      }
+
       a {
         flex: 1 1 auto !important;
         white-space: nowrap !important;
@@ -39,11 +58,8 @@
         text-overflow: ellipsis !important;
         margin-right: 1rem !important;
         text-decoration: none !important;
-        font-size: 0.85rem !important;
-        font-weight: 400 !important;
       }
 
-      /* 날짜 스타일: 오른쪽 정렬 및 작은 글씨 */
       .meta, time, .date {
         flex: 0 0 auto !important;
         text-align: right !important;
@@ -52,7 +68,7 @@
         opacity: 0.6 !important;
       }
 
-      /* 태그 및 불필요한 메타 정보 완전 숨김 */
+      // 태그 및 불필요한 메타 정보 완전 숨김
       [class*="tag"],
       .tags,
       .tag-badge,

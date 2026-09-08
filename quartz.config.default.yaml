@@ -6,7 +6,7 @@ configuration:
   enablePopovers: false
   analytics:
     provider: plausible
-  locale: en-US
+  locale: ko-KR
   baseUrl: mudeul.github.io/baram
   ignorePatterns:
     - private
