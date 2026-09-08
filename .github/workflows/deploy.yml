@@ -34,6 +34,11 @@ jobs:
         with:
           path: public
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
   deploy:
     needs: build
     runs-on: ubuntu-22.04
