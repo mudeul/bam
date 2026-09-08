@@ -199,3 +199,42 @@ body[data-slug="index"],
     }
   }
 }
+// ==========================================
+// index 홈 화면 본문 가운데 정렬 및 마지막 '더 보기' 링크 우측 배치
+// ==========================================
+body[data-slug="index"], 
+.page[data-slug="index"],
+[data-slug="index"] {
+  
+  // 아티클 영역 기본을 확실하게 가운데 정렬로 초기화
+  article {
+    text-align: center !important;
+
+    // 본문 내 일반 텍스트 단락은 모두 가운데 정렬
+    p {
+      text-align: center !important;
+    }
+
+    // 맨 마지막 단락(더 보기 링크)만 오른쪽으로 밀어내기
+    p:last-of-type {
+      text-align: right !important;
+      width: 100% !important;
+      display: block !important;
+      margin-top: 1.5rem !important;
+
+      a {
+        display: inline-block !important;
+        font-size: 0.85rem !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        opacity: 0.7;
+        padding: 0.2rem 0.5rem;
+        
+        &:hover {
+          opacity: 1;
+          text-decoration: underline !important;
+        }
+      }
+    }
+  }
+}
