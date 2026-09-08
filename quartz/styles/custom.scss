@@ -141,3 +141,38 @@ body[data-slug="index"],
     }
   }
 }
+// ==========================================
+// 최신글 목록 하단 '더 보기 →' 버튼 스타일링
+// ==========================================
+div:has(> h3:contains("최신글")), 
+.recent-notes, 
+[class*="recent-notes"] {
+  position: relative;
+  
+  // 최신글 목록(ul) 끝난 지점에 버튼 생성
+  &::after {
+    content: "모든 글 보기 →";
+    display: block;
+    text-align: right;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  
+  // 링크 기능을 하도록 a태그로 감싸거나 스타일 부여 (옵시디언 노트 경로로 연결)
+  a.view-more-btn {
+    display: block;
+    text-align: right;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    text-decoration: none !important;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
