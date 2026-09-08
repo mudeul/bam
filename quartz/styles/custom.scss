@@ -136,14 +136,44 @@ body[data-slug="index"],
   }
 }
 // ==========================================
-// 최신글(RecentNotes) 박스 하단에 진짜 링크가 작동하는 '더 보기' 버튼 추가
+// index.md 맨 마지막 링크('더 보기')를 최신글 아래 우측 버튼으로 끌어오기
 // ==========================================
 body[data-slug="index"] {
-  .recent-notes, 
-  [class*="recent-notes"] {
-    position: relative !important;
-    display: flex !important;
-    flex-direction: column !important;
-    margin-bottom: 2rem !important;
+  article {
+    display: flex;
+    flex-direction: column;
+
+    // 본문 내용들은 위쪽으로 정렬
+    > *:not(p:last-of-type) {
+      order: 1;
+    }
+
+    // 마크다운 맨 마지막에 적은 '더 보기' 링크 단락을 최신글 아래(order: 3)로 이동
+    p:last-of-type {
+      order: 3;
+      display: block !important;
+      text-align: right !important;
+      margin-top: 1.5rem !important;
+      padding-right: 0.5rem;
+
+      a {
+        display: inline-block !important;
+        font-size: 0.85rem !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        opacity: 0.7;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+          opacity: 1;
+          text-decoration: underline !important;
+        }
+      }
+    }
+  }
+
+  // 최신글 컴포넌트 위치를 중간(order: 2)으로 지정
+  .recent-notes, [class*="recent-notes"] {
+    order: 2;
   }
 }
