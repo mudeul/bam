@@ -85,3 +85,41 @@ div:has(> h3:contains("최신글")),
     }
   }
 }
+// ==========================================
+// 1. 메인 페이지(index) 본문 가운데 정렬 복구 및 구분선 제거
+// ==========================================
+body[data-slug="index"], 
+.page[data-slug="index"],
+[data-slug="index"] {
+  article {
+    text-align: center !important; // 본문 전체 가운데 정렬 복구
+
+    p, li, span, div {
+      text-align: center !important;
+    }
+  }
+
+  // 홈 화면 본문이 끝나고 나오는 구분선(hr) 제거
+  hr, .content-meta + hr {
+    display: none !important;
+  }
+}
+
+// ==========================================
+// 2. 최신글(RecentNotes) 및 폴더 목록 사이의 구분선 제거
+// ==========================================
+.folder-page,
+.section,
+.page-content,
+.home-grid,
+.recent-notes,
+[class*="recent-notes"],
+[class*="folder"] {
+  ul {
+    li {
+      // 글 목록 사이사이에 들어가던 구분선 제거
+      border-bottom: none !important;
+      border: none !important;
+    }
+  }
+}

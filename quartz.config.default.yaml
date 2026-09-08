@@ -211,7 +211,7 @@ plugins:
   - source: "@quartz-community/recent-notes"
     enabled: true
     options:
-      limit: 15
+      limit: 10
       title: "최신 글"
   - source: "@quartz-community/spacer"
     enabled: true
