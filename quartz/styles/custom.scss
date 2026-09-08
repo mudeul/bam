@@ -220,18 +220,28 @@ body[data-slug="index"] {
   }
 }
 // ==========================================
-// 폴더/홈 목록에서 태그 완전 제거 (PC/모바일 공통)
+// 폴더/홈 목록 태그 초강력 강제 숨김 (버전 2)
 // ==========================================
 .folder-page,
+.section,
+.page-content,
 .home-grid,
 [class*="folder"],
 [class*="recent-notes"] {
   ul li {
-    .tags, 
-    .tag-badge, 
+    /* 태그라는 단어가 포함된 모든 클래스, 배지, 링크, 텍스트를 무조건 숨김 */
+    [class*="tag"],
+    .tags,
+    .tag-badge,
     span.tags,
     a.tag {
       display: none !important;
+      visibility: hidden !important;
+      opacity: 0 !important;
+      width: 0 !important;
+      height: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
   }
 }
