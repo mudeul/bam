@@ -209,10 +209,10 @@ plugins:
       position: footer
       priority: 50
   - source: "@quartz-community/recent-notes"
-    enabled: false
+    enabled: true
     options:
-      limit: 5
-      title: "낱장"
+      limit: 15
+      title: "최신 글"
   - source: "@quartz-community/spacer"
     enabled: true
     options: {}
