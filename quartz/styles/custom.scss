@@ -220,7 +220,7 @@ body[data-slug="index"] {
   }
 }
 // ==========================================
-// 폴더/홈 목록 태그 초강력 강제 숨김 (버전 2)
+// 폴더/홈 목록 태그 및 불렛 완전 제거
 // ==========================================
 .folder-page,
 .section,
@@ -228,20 +228,34 @@ body[data-slug="index"] {
 .home-grid,
 [class*="folder"],
 [class*="recent-notes"] {
-  ul li {
-    /* 태그라는 단어가 포함된 모든 클래스, 배지, 링크, 텍스트를 무조건 숨김 */
-    [class*="tag"],
-    .tags,
-    .tag-badge,
-    span.tags,
-    a.tag {
-      display: none !important;
-      visibility: hidden !important;
-      opacity: 0 !important;
-      width: 0 !important;
-      height: 0 !important;
-      margin: 0 !important;
-      padding: 0 !important;
+  ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+
+    li {
+      list-style: none !important;
+      list-style-type: none !important;
+
+      /* 불렛 기호 자체를 강제로 지우기 */
+      &::marker {
+        display: none !important;
+        content: "" !important;
+      }
+
+      /* 태그 관련 요소 완전 숨김 */
+      [class*="tag"],
+      .tags,
+      .tag-badge,
+      span.tags,
+      a.tag {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
     }
   }
 }
