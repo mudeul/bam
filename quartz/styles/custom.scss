@@ -164,3 +164,38 @@ body[data-slug="index"],
     }
   }
 }
+// ==========================================
+// index 홈 화면 본문 가운데 정렬 유지 & 맨 마지막 '더 보기' 링크만 우측 정렬 버튼으로 만들기
+// ==========================================
+body[data-slug="index"], 
+.page[data-slug="index"],
+[data-slug="index"] {
+  article {
+    // 본문 전체는 확실하게 가운데 정렬 유지
+    text-align: center !important;
+
+    p, span, div:not([class*="recent-notes"]) {
+      text-align: center !important;
+    }
+
+    // 단, 본문 맨 마지막에 있는 단락(더 보기 링크가 포함된 곳)만 예외적으로 우측 정렬
+    p:last-of-type {
+      text-align: right !important;
+      margin-top: 1.5rem !important;
+
+      a {
+        display: inline-block !important;
+        font-size: 0.85rem !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        opacity: 0.7;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+          opacity: 1;
+          text-decoration: underline !important;
+        }
+      }
+    }
+  }
+}
