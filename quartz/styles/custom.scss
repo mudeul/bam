@@ -160,19 +160,24 @@ div:has(> h3:contains("최신글")),
     opacity: 0.8;
     cursor: pointer;
   }
-  
-  // 링크 기능을 하도록 a태그로 감싸거나 스타일 부여 (옵시디언 노트 경로로 연결)
-  a.view-more-btn {
+// ==========================================
+// 최신글 목록 하단 '더 보기' 버튼 커스텀 (카테고리 링크 연동용)
+// ==========================================
+.recent-notes, 
+[class*="recent-notes"] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  // 최신글 ul 목록 바로 밑에 가상 버튼 생성
+  &::after {
+    content: "카테고리 전체보기 →";
     display: block;
     text-align: right;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
     font-size: 0.85rem;
-    text-decoration: none !important;
+    font-weight: 500;
     opacity: 0.7;
-    transition: opacity 0.2s ease;
-
-    &:hover {
-      opacity: 1;
-    }
+    cursor: pointer;
   }
 }
