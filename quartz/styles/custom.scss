@@ -136,38 +136,32 @@ body[data-slug="index"],
   }
 }
 // ==========================================
-// 최신글(RecentNotes) 영역 맨 하단에 '더 보기' 버튼 자동 생성 및 위치 고정
+// index.md 맨 마지막 링크('더 보기')를 최신글 아래 우측 버튼으로 위치시키기
 // ==========================================
-.recent-notes, 
-[class*="recent-notes"] {
-  position: relative !important;
-  display: flex !important;
-  flex-direction: column !important;
+body[data-slug="index"], 
+.page[data-slug="index"],
+[data-slug="index"] {
+  
+  // 아티클 본문 내 마지막 단락(더 보기 링크)을 정조준
+  article {
+    p:last-of-type {
+      text-align: right !important;
+      margin-top: 2rem !important; // 최신글과의 간격 조절
+      padding-right: 0.5rem;
 
-  // 최신글 목록(ul) 밑에 '더 보기' 버튼 역할을 하는 가상 요소 배치
-  // (실제 클릭 영역을 위해 앵커 태그나 구조를 쓰기 어려우므로, 
-  //  만약 실제 링크 이동이 필요하다면 아래 방식 혹은 HTML 주입을 사용해야 합니다)
-}
+      a {
+        display: inline-block !important;
+        font-size: 0.85rem !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        opacity: 0.7;
+        transition: opacity 0.2s ease;
 
-// 쿼츠 빌드 시 최신글 영역 안의 ul 바로 다음에 버튼이 오도록 플렉스 정렬 활용
-.recent-notes ul, 
-[class*="recent-notes"] ul {
-  order: 1;
-}
-
-// 💡 가장 확실한 해결책: 
-// 최신글 컴포넌트 바로 밑에 우측 정렬된 '더 보기' 버튼 모양 만들기
-// (index 페이지의 최신글 박스 하단을 타겟팅)
-body[data-slug="index"] {
-  .recent-notes::after,
-  [class*="recent-notes"]::after {
-    content: "더 보기 →";
-    display: block;
-    text-align: right;
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    font-weight: 500;
-    opacity: 0.7;
-    cursor: pointer;
+        &:hover {
+          opacity: 1;
+          text-decoration: underline !important;
+        }
+      }
+    }
   }
 }
