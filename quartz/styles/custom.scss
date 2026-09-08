@@ -210,3 +210,19 @@ body[data-slug="index"] {
     box-sizing: border-box !important;
   }
 }
+// ==========================================
+// 폴더/홈 목록에서 태그 완전 제거 (PC/모바일 공통)
+// ==========================================
+.folder-page,
+.home-grid,
+[class*="folder"],
+[class*="recent-notes"] {
+  ul li {
+    .tags, 
+    .tag-badge, 
+    span.tags,
+    a.tag {
+      display: none !important;
+    }
+  }
+}
