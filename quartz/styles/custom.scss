@@ -1,5 +1,5 @@
 // ==========================================
-// 4. RecentNotes(최신글) 완벽 한 줄 정렬 커스텀 (최종 완성본)
+// 1. RecentNotes(최신글) 한 줄 정렬 및 여백 축소 (구분선 완전 제거)
 // ==========================================
 div:has(> h3:contains("최신글")), 
 .recent-notes, 
@@ -26,9 +26,10 @@ div:has(> h3:contains("최신글")),
       justify-content: space-between !important;
       align-items: center !important;
       width: 100% !important;
-      padding: 0.18rem 0 !important;
+      padding: 0.15rem 0 !important; // 여백 대폭 축소
       margin: 0 !important;
-      border-bottom: 1px solid rgba(128, 128, 128, 0.12) !important;
+      border: none !important;      // 구분선 확실하게 제거
+      border-bottom: none !important;
       list-style: none !important;
       list-style-type: none !important;
 
@@ -44,6 +45,7 @@ div:has(> h3:contains("최신글")),
         align-items: center !important;
         width: 100% !important;
         margin: 0 !important;
+        text-align: left !important; // 모바일 쏠림 방지
       }
 
       a, span, time, .date {
@@ -58,6 +60,7 @@ div:has(> h3:contains("최신글")),
         text-overflow: ellipsis !important;
         margin-right: 1rem !important;
         text-decoration: none !important;
+        text-align: left !important; // 제목 왼쪽 정렬 고정
       }
 
       .meta, time, .date {
@@ -85,16 +88,19 @@ div:has(> h3:contains("최신글")),
     }
   }
 }
+
 // ==========================================
-// 1. 메인 페이지(index) 본문 가운데 정렬 복구 및 구분선 제거
+// 2. 메인 페이지(index) 본문 가운데 정렬 및 타이틀/메타 숨기기
 // ==========================================
 body[data-slug="index"], 
 .page[data-slug="index"],
 [data-slug="index"] {
+  
   article {
-    text-align: center !important; // 본문 전체 가운데 정렬 복구
+    text-align: center !important;
 
-    p, li, span, div {
+    // 본문 영역 내부의 일반 텍스트 요소만 가운데 정렬 (최신글 영역 제외)
+    > p, > span, > div:not([class*="recent-notes"]):not([class*="section"]) {
       text-align: center !important;
     }
   }
@@ -103,70 +109,35 @@ body[data-slug="index"],
   hr, .content-meta + hr {
     display: none !important;
   }
-}
 
-// ==========================================
-// 2. 최신글(RecentNotes) 및 폴더 목록 사이의 구분선 제거
-// ==========================================
-.folder-page,
-.section,
-.page-content,
-.home-grid,
-.recent-notes,
-[class*="recent-notes"],
-[class*="folder"] {
-  ul {
-    li {
-      // 글 목록 사이사이에 들어가던 구분선 제거
-      border-bottom: none !important;
-      border: none !important;
-    }
-  }
-}
-// ==========================================
-// 모바일 화면을 포함한 index 본문 가운데 정렬 강제 고정
-// ==========================================
-@media (max-width: 1000px) {
-  body[data-slug="index"], 
-  .page[data-slug="index"],
-  [data-slug="index"] {
-    article, 
-    .center, 
-    .content, 
-    .content-page {
-      text-align: center !important;
-
-      p, div, span, h1, h2, h3 {
-        text-align: center !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-      }
-    }
-  }
-}
-// ==========================================
-// index 홈 화면의 타이틀, 날짜, 읽기 시간(meta) 숨기기
-// ==========================================
-body[data-slug="index"], 
-.page[data-slug="index"],
-[data-slug="index"] {
-  
-  // 문서 타이틀 (ArticleTitle) 숨김
+  // 문서 타이틀 및 메타 정보 숨김
   header > h1,
-  .article-title {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  // 날짜 및 읽기 시간 등 메타 정보 (ContentMeta) 숨김
+  .article-title,
   .content-meta {
     display: none !important;
     visibility: hidden !important;
     height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
+  }
+}
+
+// ==========================================
+// 3. 모바일 화면 대응 (본문만 가운데 정렬, 최신글은 좌우정렬 유지)
+// ==========================================
+@media (max-width: 1000px) {
+  body[data-slug="index"], 
+  .page[data-slug="index"],
+  [data-slug="index"] {
+    article {
+      text-align: center !important;
+
+      // 최신글 내부를 침범하지 않고 순수 본문 내용만 가운데로 유도
+      > p, > ul:not([class*="recent-notes"]) {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+    }
   }
 }
