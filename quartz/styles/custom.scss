@@ -136,44 +136,38 @@ body[data-slug="index"],
   }
 }
 // ==========================================
-// index.md 맨 마지막 링크('더 보기')를 최신글 아래 우측 버튼으로 끌어오기
+// index 홈 화면 '더 보기' 링크 위치 및 디자인 정돈 (하이라이트 제거)
 // ==========================================
 body[data-slug="index"] {
+  // 1. 아티클 전체 순서 강제 변경 제거 (원래 구조 유지)
   article {
-    display: flex;
-    flex-direction: column;
-
-    // 본문 내용들은 위쪽으로 정렬
-    > *:not(p:last-of-type) {
-      order: 1;
-    }
-
-    // 마크다운 맨 마지막에 적은 '더 보기' 링크 단락을 최신글 아래(order: 3)로 이동
+    display: block !important;
+    
+    // 2. 마크다운 본문 맨 마지막에 적은 '더 보기' 단락을 최신글 아래로 우측 정렬
     p:last-of-type {
-      order: 3;
       display: block !important;
       text-align: right !important;
-      margin-top: 1.5rem !important;
-      padding-right: 0.5rem;
+      margin-top: -0.5rem !important; // 최신글 목록과 바짝 붙도록 간격 조절
+      margin-bottom: 2rem !important;
+      padding-right: 0 !important;
+      background: transparent !important; // 배경 하이라이트 제거
 
       a {
         display: inline-block !important;
         font-size: 0.85rem !important;
         font-weight: 500 !important;
         text-decoration: none !important;
+        background-color: transparent !important; // 링크 자체 배경 제거
+        padding: 0.2rem 0.4rem !important;
         opacity: 0.7;
         transition: opacity 0.2s ease;
 
         &:hover {
           opacity: 1;
           text-decoration: underline !important;
+          background-color: transparent !important;
         }
       }
     }
-  }
-
-  // 최신글 컴포넌트 위치를 중간(order: 2)으로 지정
-  .recent-notes, [class*="recent-notes"] {
-    order: 2;
   }
 }
