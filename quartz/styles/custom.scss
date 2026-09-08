@@ -26,7 +26,7 @@ div:has(> h3:contains("최신글")),
       justify-content: space-between !important;
       align-items: center !important;
       width: 100% !important;
-      padding: 0.35rem 0 !important;
+      padding: 0.18rem 0 !important;
       margin: 0 !important;
       border-bottom: 1px solid rgba(128, 128, 128, 0.12) !important;
       list-style: none !important;
@@ -121,5 +121,52 @@ body[data-slug="index"],
       border-bottom: none !important;
       border: none !important;
     }
+  }
+}
+// ==========================================
+// 모바일 화면을 포함한 index 본문 가운데 정렬 강제 고정
+// ==========================================
+@media (max-width: 1000px) {
+  body[data-slug="index"], 
+  .page[data-slug="index"],
+  [data-slug="index"] {
+    article, 
+    .center, 
+    .content, 
+    .content-page {
+      text-align: center !important;
+
+      p, div, span, h1, h2, h3 {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+    }
+  }
+}
+// ==========================================
+// index 홈 화면의 타이틀, 날짜, 읽기 시간(meta) 숨기기
+// ==========================================
+body[data-slug="index"], 
+.page[data-slug="index"],
+[data-slug="index"] {
+  
+  // 문서 타이틀 (ArticleTitle) 숨김
+  header > h1,
+  .article-title {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  // 날짜 및 읽기 시간 등 메타 정보 (ContentMeta) 숨김
+  .content-meta {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
