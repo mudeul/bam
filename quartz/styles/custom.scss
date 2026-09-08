@@ -88,6 +88,15 @@ div:has(> h3:contains("최신글")),
     margin-bottom: 0.4rem !important;
   }
 
+/* 이 부분에 폴더 페이지 관련 태그 선택자들까지 함께 숨기도록 지정 */
+  ul li .tags, 
+  ul li .tag-badge, 
+  .tag, 
+  span.tags,
+  a.tag {
+    display: none !important;
+  }
+
   ul li .tags, 
   ul li .tag-badge, 
   .tag, 
