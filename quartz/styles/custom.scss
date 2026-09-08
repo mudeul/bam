@@ -1,136 +1,47 @@
-@use "./variables.scss" as *;
+*(위와 같이 적어주면 블로그 전체에서 가장 최근에 작성된 글 15개가 자동으로 불려 나옵니다.)*
 
+---
+
+### 2단계: `custom.scss` 파일 수정
+이미 작성하신 멋진 CSS 코드 기반 위에, 홈 화면과 최신글 영역에 15개 목록이 어제처럼 **왼쪽 정렬(제목), 오른쪽 정렬(날짜), 작은 글씨 사이즈(0.85rem)**로 딱 들어맞도록 맨 아래 코드를 아래 내용으로 교체해 주시면 완벽하게 반영됩니다.
+
+기존 코드 맨 아래에 있는 `폴더/홈 목록 태그/불렛 제거 및 상하 폭(간격) 넓히기` 블록을 지우고, 아래 코드로 통째로 바꿔서 저장해 보세요.
+
+```scss
 // ==========================================
-// 0. 본문 하단 구분선(hr) 제거
+// 홈 화면 및 최신글(RecentNotes) 목록 완벽 정렬 커스텀 (15개 리스트 대응)
 // ==========================================
-article hr,
-.content-meta + hr,
-hr {
-  display: none !important;
-}
-
-// ==========================================
-// 1. 메인 페이지(index) 전용 설정
-// ==========================================
-body[data-slug="index"], 
-.page[data-slug="index"],
-[data-slug="index"] {
-  article {
-    p {
-      text-align: center;
-    }
-    
-    img {
-      max-width: 450px !important;
-      width: 100% !important;
-      height: auto !important;
-      display: block !important;
-      margin: 1.5rem auto !important;
-    }
-  }
-
-  .article-title,
-  h1.article-title,
-  .content-meta,
-  .note-properties {
-    display: none !important;
-  }
-}
-
-// ==========================================
-// 2. 글로벌 타이포그래피 및 글자 크기 고정
-// ==========================================
-article, 
-article p, 
-article li, 
-article span, 
-article div {
-  font-size: 0.85rem !important;
-  line-height: 1.6 !important;
-}
-
-article ul {
-  list-style: none !important; 
-  padding-left: 0 !important;  
-}
-
-article a.internal, 
-article a.external {
-  background-color: transparent !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  font-weight: normal !important;
-  font-size: 0.85rem !important;
-}
-
-article small a,
-article small a.internal,
-article small a.external {
-  color: #8b949e !important; 
-  opacity: 0.8 !important;
-  font-size: 0.78rem !important;
-}
-
-article small a:hover {
-  color: var(--dark) !important; 
-  opacity: 1 !important;
-}
-
-// ==========================================
-// 3. RecentNotes(최신글) 한 줄 정렬 커스텀
-// ==========================================
-div:has(> h3:contains("최신글")), 
-.recent-notes, 
-[class*="recent-notes"] {
-  h3, h4 {
-    font-size: 0.95rem !important;
-    font-weight: 500 !important;
-    margin-bottom: 0.4rem !important;
-  }
-
-/* 이 부분에 폴더 페이지 관련 태그 선택자들까지 함께 숨기도록 지정 */
-  ul li .tags, 
-  ul li .tag-badge, 
-  .tag, 
-  span.tags,
-  a.tag {
-    display: none !important;
-  }
-
-  ul li .tags, 
-  ul li .tag-badge, 
-  .tag, 
-  span.tags {
-    display: none !important;
-  }
-
+.folder-page,
+.section,
+.page-content,
+.home-grid,
+.recent-notes,
+[class*="recent-notes"],
+[class*="folder"] {
   ul {
     list-style: none !important;
     padding-left: 0 !important;
     margin: 0 !important;
 
     li {
+      list-style: none !important;
+      list-style-type: none !important;
       display: flex !important;
       justify-content: space-between !important;
       align-items: center !important;
       width: 100% !important;
-      padding: 0.2rem 0 !important;
+      
+      &::marker {
+        display: none !important;
+        content: "" !important;
+      }
+
+      /* 위아래 간격 및 연한 구분선 설정 */
+      padding: 0.35rem 0 !important;
       margin: 0 !important;
-      border: none !important;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.12) !important;
 
-      > div, > p {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        width: 100% !important;
-        margin: 0 !important;
-      }
-
-      a, span, time, .date {
-        font-size: 0.85rem !important;
-        font-weight: 400 !important;
-      }
-
+      /* 링크(글 제목) 스타일: 왼쪽 정렬 및 말줄임 */
       a {
         flex: 1 1 auto !important;
         white-space: nowrap !important;
@@ -138,8 +49,11 @@ div:has(> h3:contains("최신글")),
         text-overflow: ellipsis !important;
         margin-right: 1rem !important;
         text-decoration: none !important;
+        font-size: 0.85rem !important;
+        font-weight: 400 !important;
       }
 
+      /* 날짜 스타일: 오른쪽 정렬 및 작은 글씨 */
       .meta, time, .date {
         flex: 0 0 auto !important;
         text-align: right !important;
@@ -147,106 +61,8 @@ div:has(> h3:contains("최신글")),
         font-size: 0.78rem !important;
         opacity: 0.6 !important;
       }
-    }
-  }
-}
 
-// ==========================================
-// 4. 홈 화면을 2단이 아닌 세로로 길게 쌓기
-// ==========================================
-.home-grid {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  gap: 2rem !important;
-  width: 100% !important;
-}
-
-.home-grid > div {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-// ==========================================
-// 홈 화면 sheets 목록 좌우 정렬 고정
-// ==========================================
-body[data-slug="index"] {
-  .home-grid ul, 
-  article ul {
-    list-style: none !important;
-    padding-left: 0 !important;
-
-    li {
-      display: flex !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      width: 100% !important;
-      padding: 0.25rem 0 !important;
-      box-sizing: border-box !important;
-
-      a {
-        flex: 1 1 auto !important;
-        white-space: nowrap !important;
-        overflow: hidden !important;
-        text-overflow: ellipsis !important;
-        margin-right: 1rem !important;
-        text-decoration: none !important;
-      }
-
-      .date {
-        flex: 0 0 auto !important;
-        text-align: right !important;
-        white-space: nowrap !important;
-        font-size: 0.8rem !important;
-        opacity: 0.6 !important;
-      }
-    }
-  }
-}
-@media (max-width: 1000px) {
-  /* 왼쪽만 딱 붙지 않고 좌우 균등하게 적당한 여백(0.8rem)을 주어 대칭 맞추기 */
-  .center, 
-  .content, 
-  article,
-  .content-page,
-  .folder-page {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-left: 0.8rem !important;
-    padding-right: 0.8rem !important;
-    box-sizing: border-box !important;
-  }
-}
-// ==========================================
-// 폴더/홈 목록 태그/불렛 제거 및 상하 폭(간격) 넓히기
-// ==========================================
-.folder-page,
-.section,
-.page-content,
-.home-grid,
-[class*="folder"],
-[class*="recent-notes"] {
-  ul {
-    list-style: none !important;
-    padding-left: 0 !important;
-
-    li {
-      list-style: none !important;
-      list-style-type: none !important;
-      
-      &::marker {
-        display: none !important;
-        content: "" !important;
-      }
-
-      /* 여기서 리스트 아이템의 위아래 폭(간격)을 조절합니다 (현재 0.5rem으로 넉넉하게 지정) */
-      padding: 0.5rem 0 !important;
-      margin: 0 !important;
-      border-bottom: 1px solid rgba(128, 128, 128, 0.15) !important; // 구분선을 살짝 넣어주면 더 깔끔합니다
-
-      /* 태그 관련 요소 완전 숨김 */
+      /* 태그 및 불필요한 메타 정보 완전 숨김 */
       [class*="tag"],
       .tags,
       .tag-badge,
